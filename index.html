@@ -3,57 +3,791 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juhen FW - Portfolio</title>
+    <title>Juhen Fashikha Wildan - Portfolio</title>
+    <meta name="description" content="Machine Learning Enthusiast | Robotics Engineer | AI Researcher at Universitas Airlangga">
+    <meta name="keywords" content="Machine Learning, AI, Robotics, Computer Vision, IoT, Python, TensorFlow, PyTorch">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
         }
-        .container {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 15px;
+
+        /* Animated Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
-        h1 { color: #fff; text-align: center; }
-        .social-links a {
-            margin: 10px;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.2);
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f093fb;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 5px rgba(240, 147, 251, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.8)); }
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .typing-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            min-height: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #f093fb;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            color: #f093fb;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border-radius: 4px;
+            animation: fillBar 2s ease forwards;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            color: #f093fb;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #f093fb;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Juhen Fashikha Wildan</h1>
-        <h2>Student | Tech Enthusiast | General Engineer</h2>
-        <p>🎓 Studying at Universitas Airlangga</p>
-        <p>🌱 Learning Machine Learning, Robotics, and AI</p>
-        <p>🔬 Passionate about Research and Writing</p>
-        
-        <h3>🚀 Featured Projects</h3>
-        <ul>
-            <li>Ant Colony for Path Planning Route</li>
-            <li>QR Code Detection Project</li>
-            <li>Follow Me Robot</li>
-            <li>ESP32 Weather Monitoring</li>
-            <li>Smart Adaptive Cleaner (El Roomba)</li>
-        </ul>
-        
-        <div class="social-links">
-            <a href="https://github.com/juhenfw">GitHub</a>
-            <a href="https://linkedin.com/in/juhenfw">LinkedIn</a>
-            <a href="mailto:juhenwildan@gmail.com">Email</a>
-            <a href="https://scholar.google.com/citations?user=7VxM9hwAAAAJ&hl=id">Google Scholar</a>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">JFW</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Juhen Fashikha Wildan</h1>
+            <h2>Student | Tech Enthusiast | General Engineer</h2>
+            <div class="typing-text" id="typing-text"></div>
+            <p>🎓 Universitas Airlangga | 🤖 Machine Learning | 🔬 Research & Writing</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/juhenfw" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/juhenfw" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:juhenwildan@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=7VxM9hwAAAAJ&hl=id" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://instagram.com/juhenfw_" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/juhenfw_" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/250x250/667eea/ffffff?text=JFW" alt="Juhen FW">
+                </div>
+                <div class="about-text">
+                    <h3>Passionate About Innovation</h3>
+                    <p>I'm a dedicated student at Universitas Airlangga with a deep passion for Machine Learning, Robotics, and Artificial Intelligence. My journey in technology is driven by curiosity and the desire to create solutions that make a positive impact.</p>
+                    <p>With expertise in Python, MATLAB, C++, and various ML frameworks, I enjoy working on challenging projects that push the boundaries of what's possible in AI and robotics.</p>
+                    <p>When I'm not coding, you'll find me researching the latest developments in computer vision, writing technical articles, or working on autonomous systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills & Technologies</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>C/C++</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>MATLAB</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <div class="skill-item">
+                        <span>TensorFlow</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>PyTorch</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>OpenCV</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-microchip"></i> Hardware & IoT</h3>
+                    <div class="skill-item">
+                        <span>Arduino</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>ESP32</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Robotics</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid fade-in">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-route"></i></div>
+                    <h3>Ant Colony Optimization</h3>
+                    <p>Advanced path planning algorithm using swarm intelligence for route optimization. Implemented in Python with visualization capabilities.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/juhenfw/Ant-Colony-for-Path-Planning-Route" class="btn" target="_blank">View Code</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-qrcode"></i></div>
+                    <h3>QR Code Detection</h3>
+                    <p>Real-time QR code detection system using computer vision techniques and mvsdk library for high-performance scanning.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/juhenfw/QR-Code-Detection-Project" class="btn" target="_blank">View Code</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Follow Me Robot</h3>
+                    <p>Autonomous robot with object tracking capabilities using computer vision and machine learning for intelligent navigation.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/juhenfw/Follow-Me-Robot" class="btn" target="_blank">View Code</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <h3>IoT Weather Station</h3>
+                    <p>ESP32-based environmental monitoring system with multiple sensors for real-time weather data collection and analysis.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/juhenfw/ESP32-Weather-Monitoring" class="btn" target="_blank">View Code</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-broom"></i></div>
+                    <h3>Smart Adaptive Cleaner</h3>
+                    <p>Intelligent cleaning robot simulation using Webots 2021a with adaptive algorithms for efficient cleaning patterns.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/juhenfw/Smart-Adaptive-Cleaner-El-Roomba-" class="btn" target="_blank">View Code</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-eye"></i></div>
+                    <h3>YOLO Object Detection</h3>
+                    <p>High-performance object detection using YOLO with TensorRT optimization for real-time inference at 200+ FPS.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-content fade-in">
+                <h3>Let's collaborate on exciting projects!</h3>
+                <p>I'm always open to discussing new opportunities, research collaborations, or just having a chat about technology and innovation.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>juhenwildan@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Surabaya, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <span>Universitas Airlangga</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Juhen Fashikha Wildan. Made with ❤️ and lots of ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing animation
+        const texts = [
+            "Machine Learning Enthusiast",
+            "Robotics Engineer", 
+            "AI Researcher",
+            "IoT Developer",
+            "Computer Vision Expert"
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+        
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeText, speed);
+        }
+        
+        typeText();
+        
+        // Floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', handleScrollAnimations);
+        handleScrollAnimations(); // Initial check
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
