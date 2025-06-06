@@ -1788,10 +1788,9 @@
         // Loading screen
         window.addEventListener('load', () => {
             const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.classList.add('hidden');
-            }, 1500);
+            loading.classList.add('hidden'); // Langsung hide setelah load
         });
+
 
         // Mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
