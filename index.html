@@ -7,6 +7,10 @@
     <meta name="description" content="Machine Learning Enthusiast | Robotics Engineer | AI Researcher at Universitas Airlangga">
     <meta name="keywords" content="Machine Learning, AI, Robotics, Computer Vision, IoT, Python, TensorFlow, PyTorch">
     
+    <!-- Preload critical images -->
+    <link rel="preload" href="mylogo.png" as="image">
+    <link rel="preload" href="itsme.png" as="image">
+    
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -115,28 +119,40 @@
             margin: 0 auto;
         }
 
+        /* Enhanced Logo Styling */
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
             position: relative;
+            overflow: hidden;
         }
 
-        .logo::after {
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: all 0.3s ease;
+            filter: brightness(1.2);
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.5);
+        }
+
+        .logo::before {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
-            transition: width 0.3s ease;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(124, 124, 248, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
-        .logo:hover::after {
-            width: 100%;
+        .logo:hover::before {
+            left: 100%;
         }
 
         .nav-links {
@@ -214,6 +230,17 @@
         @keyframes shimmer {
             0% { left: -100%; }
             100% { left: 100%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
@@ -318,6 +345,12 @@
             position: relative;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .section-title {
             text-align: center;
             font-size: 3rem;
@@ -363,7 +396,7 @@
             position: relative;
         }
 
-        /* MANUAL CHANGE NEEDED: Replace placeholder with your actual photo */
+        /* Enhanced Profile Image Styling */
         .about-image img {
             width: 300px;
             height: 300px;
@@ -374,11 +407,16 @@
                 0 20px 40px rgba(0, 0, 0, 0.3),
                 0 0 0 10px rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         .about-image img:hover {
             transform: scale(1.05);
             border-color: rgba(255, 119, 198, 0.8);
+            box-shadow: 
+                0 25px 50px rgba(124, 124, 248, 0.4),
+                0 0 0 15px rgba(255, 255, 255, 0.15);
         }
 
         .about-image::before {
@@ -502,6 +540,10 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             animation: shimmerBar 2s infinite;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
         }
 
         @keyframes shimmerBar {
@@ -689,65 +731,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Enhanced Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section {
-                padding: 4rem 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Enhanced Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Loading animation */
         .loading {
             position: fixed;
@@ -781,6 +764,92 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .about-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-image::before {
+                top: -15px;
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 25px;
+            }
+            
+            .about-image img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Enhanced Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -798,7 +867,9 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <a href="#" class="logo"><img src="mylogo.png" alt="Logo"></a>
+            <a href="#" class="logo">
+                <img src="mylogo.png" alt="Juhen Fashikha Wildan - Personal Brand Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -815,7 +886,7 @@
             <h1>Juhen Fashikha Wildan</h1>
             <h2>Tech Enthusiast | General Engineer</h2>
             <div class="typing-text" id="typing-text"></div>
-            <p>🎓 Airlangga University | 🤖 Robotics & Computer Vision Code | 🔬 Research & Writing</p>
+            <p>🎓 Universitas Airlangga | 🤖 Robotics & Computer Vision Code</p>
             
             <div class="social-links">
                 <a href="https://github.com/juhenfw" target="_blank"><i class="fab fa-github"></i></a>
@@ -834,8 +905,7 @@
             <h2 class="section-title fade-in">About Me</h2>
             <div class="about-content fade-in">
                 <div class="about-image">
-                    <!-- MANUAL CHANGE NEEDED: Replace with your actual photo -->
-                    <img src="itsme.png" alt="Juhen FW">
+                    <img src="itsme.png" alt="Juhen Fashikha Wildan - Professional Portrait Photo, Machine Learning Engineer at Universitas Airlangga">
                 </div>
                 <div class="about-text">
                     <h3>Passionate About Innovation</h3>
@@ -1009,12 +1079,12 @@
 
         // Enhanced typing animation
         const texts = [
-            "Machine Learning",
-            "Robotics & AI Engineer", 
-            "Researcher",
-            "IoT Projects",
-            "Computer Vision Application",
-            "Learn About Tech"
+            "Machine Learning Enthusiast",
+            "Robotics Engineer", 
+            "AI Researcher",
+            "IoT Developer",
+            "Computer Vision Expert",
+            "Innovation Creator"
         ];
         
         let textIndex = 0;
