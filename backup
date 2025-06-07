@@ -1787,9 +1787,9 @@
     <script>
         // Loading screen
         window.addEventListener('load', () => {
-            const loading = document.getElementById('loading');
-            loading.classList.add('hidden'); // Langsung hide setelah load
+            document.getElementById('loading').style.display = 'none';
         });
+
 
 
         // Mobile menu toggle
