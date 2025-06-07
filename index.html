@@ -1109,39 +1109,121 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Loading animation */
+        /* Loading Screen - Updated */
         .loading {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0f0f23;
+            background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             z-index: 9999;
             transition: opacity 0.5s ease;
         }
-
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
         }
-
-        .loader {
+        
+        .loader-rings {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .ring {
+            position: absolute;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+        
+        .ring:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            border-top: 3px solid #7c7cf8;
+            border-right: 3px solid #7c7cf8;
+            animation-duration: 1.5s;
+        }
+        
+        .ring:nth-child(2) {
+            width: 75px;
+            height: 75px;
+            top: 12.5px;
+            left: 12.5px;
+            border-bottom: 3px solid #ff77c6;
+            border-left: 3px solid #ff77c6;
+            animation-duration: 2s;
+            animation-direction: reverse;
+        }
+        
+        .ring:nth-child(3) {
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(124, 124, 248, 0.3);
-            border-top: 3px solid #7c7cf8;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            top: 25px;
+            left: 25px;
+            border-top: 3px solid #00d4ff;
+            border-right: 3px solid #00d4ff;
+            animation-duration: 1s;
         }
-
+        
+        .loading-text {
+            color: white;
+            font-size: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            text-align: center;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .loader-rings {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .ring:nth-child(1) {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .ring:nth-child(2) {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                left: 10px;
+            }
+            
+            .ring:nth-child(3) {
+                width: 40px;
+                height: 40px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+            }
+        }
+
 
         /* Enhanced Scroll animations */
         .fade-in {
@@ -1472,8 +1554,16 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
-        <div class="loader"></div>
+        <div class="loading-container">
+            <div class="loader-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <div class="loading-text">Loading, Please Wait...</div>
+        </div>
     </div>
+
 
     <!-- Animated Background -->
     <div class="background"></div>
