@@ -450,6 +450,37 @@
         font-size: 1rem;
     }
 
+/* Add this CSS to your existing research.css or common.css file */
+
+/* Button Styling for View Publication */
+.pub-link {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--primary-gradient);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: var(--space-md);
+}
+
+.pub-link:hover {
+    background: var(--secondary-gradient);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.pub-link i {
+    margin-right: 8px; /* Spacing between icon and text */
+}
+
+/* Add a style for the button when it's inside the About section */
+.about-section .pub-link {
+    margin-top: var(--space-lg); /* Increased margin to separate from other content */
+}
+
     .timeline-content {
         padding: 2rem;
     }
