@@ -1,1 +1,160 @@
+/* About Section Styles */
+.about-section {
+    padding: 4rem 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-image {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--primary-color);
+    transition: all var(--transition-slow);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(124, 124, 248, 0.8), rgba(255, 119, 198, 0.8));
+    opacity: 0;
+    transition: all var(--transition-slow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+}
+
+.about-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    transform: translateY(20px);
+    transition: all var(--transition-slow);
+}
+
+.about-image:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.overlay-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.about-text {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.philosophy {
+    background: linear-gradient(135deg, rgba(124, 124, 248, 0.1), rgba(255, 119, 198, 0.1));
+    padding: 2rem;
+    border-radius: var(--border-radius-small);
+    border-left: 4px solid var(--primary-color);
+    margin-top: 2rem;
+}
+
+.philosophy h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.philosophy p {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, rgba(124, 124, 248, 0.05), rgba(255, 119, 198, 0.05));
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.skill-category:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
 
