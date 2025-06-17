@@ -396,6 +396,37 @@ p {
     width: 80%;
 }
 
+/* Button Styling for View Publication */
+.pub-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem; /* Adjust padding for a button-like appearance */
+    background: var(--primary-gradient); /* Gradient background */
+    color: var(--text-primary); /* White or light color text */
+    text-decoration: none; /* Remove underline */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+    margin-top: var(--space-md); /* Space from other elements */
+}
+
+/* Hover effect */
+.pub-link:hover {
+    background: var(--secondary-gradient); /* Change background on hover */
+    transform: translateY(-2px); /* Button lifts when hovered */
+    box-shadow: var(--shadow-md); /* Add shadow effect */
+}
+
+/* Icon styling inside the button */
+.pub-link i {
+    margin-right: 8px; /* Spacing between the icon and text */
+}
+
+/* Add styling when inside specific section (if needed) */
+.about-section .pub-link {
+    margin-top: var(--space-lg); /* Increased margin to separate from other content */
+}
+
 /* Common Layout Components */
 .main-content {
     padding-top: 100px;
