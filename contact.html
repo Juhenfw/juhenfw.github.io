@@ -209,7 +209,7 @@
             transition: all var(--transition-normal);
             resize: vertical;
         }
-
+        
         .form-input:focus,
         .form-textarea:focus,
         .form-select:focus {
@@ -219,10 +219,16 @@
             background: rgba(102, 126, 234, 0.05);
         }
         
-        /* Fix for option text color */
+        /* Set option text color and background color */
         .form-select option {
-            color: var(--text-primary);  /* Ensure option text is visible */
-            background-color: var(--glass-bg);  /* Set option background color */
+            color: var(--text-primary);  /* Set the text color for options */
+            background-color: var(--background-color);  /* Set a contrasting background for options */
+        }
+        
+        /* Optional: Set a distinct background color for the selected option */
+        .form-select option:checked {
+            background-color: var(--primary-color);
+            color: white;  /* White text for the selected option */
         }
 
         .form-input::placeholder,
