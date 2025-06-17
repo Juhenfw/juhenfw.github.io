@@ -1,1 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Blog - Juhen Fashikha Wildan | AI & Tech Insights</title>
+    
+    <meta name="description" content="Read the latest insights, tutorials, and thoughts on AI, Machine Learning, Robotics, and IoT by Juhen Fashikha Wildan. Stay updated with cutting-edge technology trends.">
+    <meta name="keywords" content="Juhen Fashikha Wildan, Blog, AI Blog, Machine Learning, Robotics, IoT, Tech Articles, Programming Tutorials">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog - Juhen Fashikha Wildan | AI & Tech Insights">
+    <meta property="og:description" content="Latest insights and tutorials on AI, Machine Learning, and Robotics">
+    <meta property="og:image" content="mylogo.png">
+    <meta property="og:url" content="https://juhenfw.github.io/blog.html">
+    
+    <link rel="icon" type="image/png" href="mylogo.png">
+    
+    <!-- Premium Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/common.css">
+    
+    <style>
+        /* Blog Page Specific Styles */
+        .blog-hero {
+            padding: var(--space-5xl) 0 var(--space-4xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .blog-hero-content {
+            background: var(--glass-bg);
+            padding: var(--space-3xl) var(--space-2xl);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .blog-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 30%, var(--secondary-color) 70%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+        }
+
+        .blog-hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Blog Categories */
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-4xl);
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: var(--space-md) var(--space-xl);
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Blog Posts */
+        .blog-section {
+            padding: var(--space-4xl) 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-4xl);
+        }
+
+        .blog-card {
+            background: var(--glass-bg);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            position: relative;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23667eea' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .blog-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            z-index: 1;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .blog-card:hover .blog-icon {
+            transform: scale(1.1);
+            color: var(--secondary-color);
+        }
+
+        .blog-content {
+            padding: var(--space-2xl);
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .blog-category {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--primary-color);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .blog-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+            font-size: 1rem;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+
+        .blog-tag {
+            background: rgba(240, 147, 251, 0.2);
+            color: var(--secondary-color);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(240, 147, 251, 0.3);
+        }
+
+        .blog-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all var(--transition-normal);
+        }
+
+        .blog-read-more:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        /* Coming Soon Message */
+        .coming-soon {
+            text-align: center;
+            background: var(--glass-bg);
+            padding: var(--space-4xl);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            margin: var(--space-4xl) 0;
+        }
+
+        .coming-soon-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--space-xl);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .coming-soon h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .notify-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Newsletter Signup */
+        .newsletter-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            padding: var(--space-4xl) 0;
+            margin-top: var(--space-4xl);
+        }
+
+        .newsletter-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .newsletter-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--space-md);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: var(--space-lg);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-normal);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .newsletter-submit {
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+        }
+
+        .newsletter-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+            }
+
+            .blog-categories {
+                gap: var(--space-sm);
+            }
+
+            .category-btn {
+                padding: var(--space-sm) var(--space-lg);
+                font-size: 0.9rem;
+            }
+
+            .blog-content {
+                padding: var(--space-xl);
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-sm);
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                max-width: 100%;
+            }
+
+            .coming-soon {
+                padding: var(--space-3xl) var(--space-lg);
+            }
+
+            .coming-soon h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-hero-content {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+
+            .coming-soon {
+                padding: var(--space-2xl);
+            }
+
+            .coming-soon-icon {
+                font-size: 4rem;
+            }
+
+            .coming-soon h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-container">
+            <div class="loader-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <div class="loading-text">Loading Blog...</div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="background"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo" aria-label="Juhen Fashikha Wildan - Home">
+                <img src="mylogo.png" alt="Juhen Fashikha Wildan">
+            </a>
+            
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links" role="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="blog-hero">
+            <div class="container">
+                <div class="blog-hero-content fade-in">
+                    <h1>Blog & Insights</h1>
+                    <p>Thoughts on AI, Technology, and Innovation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Categories -->
+        <section class="container">
+            <div class="blog-categories fade-in">
+                <a href="#" class="category-btn active">All Posts</a>
+                <a href="#" class="category-btn">AI & Machine Learning</a>
+                <a href="#" class="category-btn">Robotics</a>
+                <a href="#" class="category-btn">IoT</a>
+                <a href="#" class="category-btn">Tutorials</a>
+                <a href="#" class="category-btn">Research</a>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="container">
+                <!-- Coming Soon Message -->
+                <div class="coming-soon fade-in">
+                    <div class="coming-soon-icon">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                    </div>
+                    <h2>Blog Coming Soon!</h2>
+                    <p>I'm currently working on creating valuable content about AI, Machine Learning, Robotics, and IoT. Stay tuned for in-depth tutorials, research insights, and technical discussions.</p>
+                    <a href="mailto:juhenwildan@gmail.com?subject=Blog Notification Request" class="notify-btn">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span>Notify Me</span>
+                    </a>
+                </div>
+
+                <!-- Preview Blog Posts (Hidden for now) -->
+                <div class="blog-grid fade-in" style="display: none;">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-brain blog-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span>March 15, 2025</span>
+                                </div>
+                                <span class="blog-category">AI & ML</span>
+                            </div>
+                            <h2 class="blog-title">Getting Started with TensorFlow for Agricultural AI</h2>
+                            <p class="blog-excerpt">A comprehensive guide to implementing machine learning solutions for smart agriculture using TensorFlow and computer vision techniques.</p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">TensorFlow</span>
+                                <span class="blog-tag">Computer Vision</span>
+                                <span class="blog-tag">Agriculture</span>
+                            </div>
+                            <a href="#" class="blog-read-more">
+                                <span>Read More</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-robot blog-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span>March 10, 2025</span>
+                                </div>
+                                <span class="blog-category">Robotics</span>
+                            </div>
+                            <h2 class="blog-title">Building Autonomous Navigation Systems</h2>
+                            <p class="blog-excerpt">Learn how to implement SLAM algorithms and path planning for mobile robots using ROS and modern sensors.</p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">ROS</span>
+                                <span class="blog-tag">SLAM</span>
+                                <span class="blog-tag">Navigation</span>
+                            </div>
+                            <a href="#" class="blog-read-more">
+                                <span>Read More</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-wifi blog-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span>March 5, 2025</span>
+                                </div>
+                                <span class="blog-category">IoT</span>
+                            </div>
+                            <h2 class="blog-title">IoT Security Best Practices</h2>
+                            <p class="blog-excerpt">Essential security considerations and implementation strategies for IoT devices and networks in industrial applications.</p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">Security</span>
+                                <span class="blog-tag">ESP32</span>
+                                <span class="blog-tag">MQTT</span>
+                            </div>
+                            <a href="#" class="blog-read-more">
+                                <span>Read More</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content fade-in">
+                    <h2>Stay Updated</h2>
+                    <p>Get notified when I publish new articles about AI, Robotics, and IoT innovations.</p>
+                    <form class="newsletter-form" action="#" method="post">
+                        <input 
+                            type="email" 
+                            class="newsletter-input" 
+                            placeholder="Enter your email"
+                            required
+                            aria-label="Email address for newsletter"
+                        >
+                        <button type="submit" class="newsletter-submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 Juhen Fashikha Wildan. Crafted with ❤️ and endless ☕</p>
+        </div>
+    </footer>
+
+    <script src="scripts/common.js"></script>
+    <script>
+        // Blog page specific functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeBlogAnimations();
+            initializeNewsletterForm();
+        });
+
+        function initializeBlogAnimations() {
+            // Animate blog cards
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 150);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            blogCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                cardObserver.observe(card);
+            });
+
+            // Category button interactions
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Add visual feedback
+                    btn.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        btn.style.transform = '';
+                    }, 150);
+                });
+            });
+        }
+
+        function initializeNewsletterForm() {
+            const form = document.querySelector('.newsletter-form');
+            const input = document.querySelector('.newsletter-input');
+            const button = document.querySelector('.newsletter-submit');
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const email = input.value.trim();
+                    if (email) {
+                        // Simulate form submission
+                        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                        button.disabled = true;
+                        
+                        setTimeout(() => {
+                            button.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                            button.style.background = 'var(--success-gradient)';
+                            input.value = '';
+                            
+                            setTimeout(() => {
+                                button.innerHTML = 'Subscribe';
+                                button.style.background = 'var(--primary-gradient)';
+                                button.disabled = false;
+                            }, 3000);
+                        }, 2000);
+                    }
+                });
+            }
+
+            // Enhanced input interactions
+            if (input) {
+                input.addEventListener('focus', () => {
+                    input.parentElement.style.transform = 'scale(1.02)';
+                });
+
+                input.addEventListener('blur', () => {
+                    input.parentElement.style.transform = 'scale(1)';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
 
