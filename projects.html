@@ -1,1 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Projects - Juhen Fashikha Wildan | AI & Robotics Portfolio</title>
+    
+    <meta name="description" content="Explore innovative projects by Juhen Fashikha Wildan in Machine Learning, Robotics, IoT, and Computer Vision. Discover cutting-edge solutions and technical implementations.">
+    <meta name="keywords" content="Juhen Fashikha Wildan, Projects, Machine Learning, AI Projects, Robotics, IoT, Computer Vision, Python, TensorFlow, Arduino">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Projects - Juhen Fashikha Wildan | AI & Robotics Portfolio">
+    <meta property="og:description" content="Innovative projects in AI, Robotics, and IoT by Juhen Fashikha Wildan">
+    <meta property="og:image" content="mylogo.png">
+    <meta property="og:url" content="https://juhenfw.github.io/projects.html">
+    
+    <link rel="icon" type="image/png" href="mylogo.png">
+    
+    <!-- Premium Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/common.css">
+    
+    <style>
+        /* Projects Page Specific Styles */
+        .projects-hero {
+            padding: var(--space-5xl) 0 var(--space-4xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .projects-hero-content {
+            background: var(--glass-bg);
+            padding: var(--space-3xl) var(--space-2xl);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .projects-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 30%, var(--secondary-color) 70%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+        }
+
+        .projects-hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Project Filter */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-4xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--space-md) var(--space-xl);
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: var(--space-4xl) 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-4xl);
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            position: relative;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23667eea' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            z-index: 1;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .project-card:hover .project-icon {
+            transform: scale(1.1);
+            color: var(--secondary-color);
+        }
+
+        .project-content {
+            padding: var(--space-2xl);
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.01em;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+            font-size: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+
+        .tech-tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--primary-color);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-lg);
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--glass-border);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+        }
+
+        .project-link:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-link.secondary {
+            background: transparent;
+            color: var(--text-secondary);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--glass-bg);
+            color: var(--text-primary);
+        }
+
+        /* Project Stats */
+        .project-stats {
+            background: var(--glass-bg);
+            padding: var(--space-3xl);
+            border-radius: var(--radius-2xl);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-2xl);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+            }
+
+            .project-filters {
+                gap: var(--space-sm);
+            }
+
+            .filter-btn {
+                padding: var(--space-sm) var(--space-lg);
+                font-size: 0.9rem;
+            }
+
+            .project-content {
+                padding: var(--space-xl);
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-hero-content {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+
+            .project-stats {
+                padding: var(--space-2xl);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-container">
+            <div class="loader-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <div class="loading-text">Loading Projects...</div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="background"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo" aria-label="Juhen Fashikha Wildan - Home">
+                <img src="mylogo.png" alt="Juhen Fashikha Wildan">
+            </a>
+            
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links" role="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="projects-hero">
+            <div class="container">
+                <div class="projects-hero-content fade-in">
+                    <h1>My Projects</h1>
+                    <p>Innovative solutions in AI, Robotics, and IoT</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Filters -->
+        <section class="container">
+            <div class="project-filters fade-in">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ai">AI & ML</button>
+                <button class="filter-btn" data-filter="robotics">Robotics</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-grid fade-in">
+                    <!-- AI/ML Projects -->
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-brain project-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smart Agricultural Monitoring System</h3>
+                            <p class="project-description">AI-powered system for monitoring crop health using computer vision and IoT sensors. Implements machine learning algorithms for disease detection and yield prediction.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">IoT</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project code">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary" aria-label="View live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Robotics Projects -->
+                    <div class="project-card" data-category="robotics">
+                        <div class="project-image">
+                            <i class="fas fa-robot project-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Autonomous Navigation Robot</h3>
+                            <p class="project-description">Mobile robot with autonomous navigation capabilities using SLAM algorithms, obstacle avoidance, and path planning for indoor environments.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">ROS</span>
+                                <span class="tech-tag">Arduino</span>
+                                <span class="tech-tag">LIDAR</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project code">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary" aria-label="View project video">
+                                    <i class="fas fa-play" aria-hidden="true"></i>
+                                    <span>Video</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IoT Projects -->
+                    <div class="project-card" data-category="iot">
+                        <div class="project-image">
+                            <i class="fas fa-wifi project-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smart Home Automation System</h3>
+                            <p class="project-description">Comprehensive IoT solution for home automation with voice control, mobile app integration, and energy monitoring capabilities.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">MQTT</span>
+                                <span class="tech-tag">Flutter</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project code">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary" aria-label="View live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Computer Vision Projects -->
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-eye project-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Real-time Object Detection System</h3>
+                            <p class="project-description">High-performance object detection system using YOLO architecture for real-time video processing and analysis applications.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">YOLO</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project code">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary" aria-label="View live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Development Projects -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <i class="fas fa-code project-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Research Dashboard</h3>
+                            <p class="project-description">Interactive web dashboard for visualizing AI research data and model performance metrics with real-time updates and collaborative features.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project code">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary" aria-label="View live demo">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Science Projects -->
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-chart-line project-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Predictive Analytics Platform</h3>
+                            <p class="project-description">Machine learning platform for predictive analytics in agriculture, featuring data preprocessing, model training, and deployment pipelines.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">FastAPI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project code">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary" aria-label="View documentation">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                    <span>Docs</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Stats -->
+                <div class="project-stats fade-in">
+                    <h2 class="section-title">Project Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="6">0</div>
+                            <div class="stat-label">Completed Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="4">0</div>
+                            <div class="stat-label">Technologies Used</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="1000">0</div>
+                            <div class="stat-label">Lines of Code</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 Juhen Fashikha Wildan. Crafted with ❤️ and endless ☕</p>
+        </div>
+    </footer>
+
+    <script src="scripts/common.js"></script>
+    <script>
+        // Projects page specific functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeProjectFilters();
+            initializeProjectAnimations();
+            initializeProjectStats();
+        });
+
+        function initializeProjectFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Filter projects with animation
+                    projectCards.forEach((card, index) => {
+                        const category = card.getAttribute('data-category');
+                        const shouldShow = filter === 'all' || category === filter;
+
+                        if (shouldShow) {
+                            setTimeout(() => {
+                                card.style.display = 'block';
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(30px)';
+                                
+                                requestAnimationFrame(() => {
+                                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                });
+                            }, index * 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(-30px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        function initializeProjectAnimations() {
+            // Stagger animation for project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 150);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            projectCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                cardObserver.observe(card);
+            });
+        }
+
+        function initializeProjectStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        portfolioUtils.animateCounter(entry.target, 0, target, 2000);
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            statNumbers.forEach(stat => {
+                statsObserver.observe(stat);
+            });
+        }
+    </script>
+</body>
+</html>
 
