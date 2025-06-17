@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Juhen Fashikha Wildan - Website</title>
+    
+    <!-- Tambahkan Favicon di sini -->
+    <link rel="icon" type="image/png" href="mylogo.png">
+    <link rel="shortcut icon" type="image/png" href="mylogo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="mylogo.png">
+    
+    <!-- Meta tags existing -->
+    <meta name="description" content="Machine Learning Enthusiast | Robotics & AI Engineer | Researcher at Airlangga University">
+    <meta name="keywords" content="Machine Learning, AI, Robotics, Computer Vision, IoT, Python, TensorFlow, PyTorch, Juhen, Juhenfw, juhen fashikha wildan, juhen wildan, juhen fashikha, Juhen Fashikha Wildan">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="mylogo.png" as="image">
+    <link rel="preload" href="itsme.png" as="image">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Enhanced Animated Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Enhanced Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+
+        .particle.small { width: 2px; height: 2px; }
+        .particle.medium { width: 4px; height: 4px; }
+        .particle.large { width: 6px; height: 6px; }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.6; }
+            25% { transform: translateY(-40px) translateX(20px) rotate(90deg); opacity: 1; }
+            50% { transform: translateY(-20px) translateX(-20px) rotate(180deg); opacity: 0.8; }
+            75% { transform: translateY(-60px) translateX(10px) rotate(270deg); opacity: 0.9; }
+        }
+
+        /* Enhanced Header with mobile optimization */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced Logo Styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            transition: all 0.3s ease;
+            filter: brightness(1.2);
+            border-radius: 8px;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.5) drop-shadow(0 0 10px rgba(124, 124, 248, 0.5));
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(124, 124, 248, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #7c7cf8;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease;
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #7c7cf8 50%, #ff77c6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 3s ease-in-out infinite alternate;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        @keyframes textGlow {
+            from { 
+                filter: drop-shadow(0 0 10px rgba(124, 124, 248, 0.5));
+                transform: scale(1);
+            }
+            to { 
+                filter: drop-shadow(0 0 30px rgba(255, 119, 198, 0.8));
+                transform: scale(1.02);
+            }
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .typing-text {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            min-height: 2rem;
+            color: #7c7cf8;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Enhanced Social Links with better mobile touch */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            min-width: 44px; /* iOS touch target minimum */
+            min-height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            font-size: 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-links a:hover::before,
+        .social-links a:active::before {
+            opacity: 1;
+        }
+
+        .social-links a:hover,
+        .social-links a:active {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(124, 124, 248, 0.3);
+        }
+
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Sections */
+        .section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: white;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            border-radius: 2px;
+        }
+
+        /* Enhanced About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Enhanced Profile Image Styles */
+        .about-image img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(124, 124, 248, 0.5);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 119, 198, 0.8);
+            box-shadow: 
+                0 25px 50px rgba(124, 124, 248, 0.4),
+                0 0 0 15px rgba(255, 255, 255, 0.15);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid rgba(124, 124, 248, 0.3);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .about-text {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            position: relative;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #7c7cf8;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Enhanced Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #7c7cf8, #ff77c6);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(124, 124, 248, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #7c7cf8;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .skill-item span {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            border-radius: 5px;
+            animation: fillBar 2s ease forwards;
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmerBar 2s infinite;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        @keyframes shimmerBar {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Research & Publications Styles */
+        .research-overview {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .research-intro {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .research-intro h3 {
+            color: #7c7cf8;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .research-intro p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .research-interests {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .interest-tag {
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .interest-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(124, 124, 248, 0.4);
+        }
+        
+        .publications-section, .research-metrics {
+            margin-bottom: 5rem;
+        }
+        
+        .publications-section h3, .research-metrics h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .publications-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .publication-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .publication-item.featured {
+            background: linear-gradient(135deg, rgba(124, 124, 248, 0.1), rgba(255, 119, 198, 0.1));
+            border-left: 4px solid #7c7cf8;
+            overflow: hidden;
+        }
+        
+        .publication-item.featured::before {
+            content: "★ Featured Publication";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(124, 124, 248, 0.2);
+        }
+        
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+        
+        .pub-header h5 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .pub-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        
+        .pub-status.published {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+        
+        .pub-authors {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .pub-authors strong {
+            color: #ff77c6;
+        }
+        
+        .pub-venue {
+            color: #7c7cf8;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .pub-details {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .pub-abstract {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .pub-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .keyword {
+            background: rgba(124, 124, 248, 0.2);
+            color: #7c7cf8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(124, 124, 248, 0.3);
+        }
+        
+        .pub-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .pub-link {
+            color: #ff77c6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 119, 198, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 119, 198, 0.3);
+        }
+        
+        .pub-link:hover {
+            color: white;
+            background: rgba(255, 119, 198, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .pub-license {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pub-license i {
+            color: #7c7cf8;
+        }
+        
+        /* Research Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .metric-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .metric-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(124, 124, 248, 0.2);
+        }
+        
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #7c7cf8;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #7c7cf8, #ff77c6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .metric-label {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .publication-item.featured::before {
+                position: static;
+                display: block;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .pub-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .pub-keywords {
+                justify-content: center;
+            }
+            
+            .research-interests {
+                justify-content: center;
+            }
+            
+            .research-intro {
+                padding: 2rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-number {
+                font-size: 2.5rem;
+            }
+            
+            .research-intro h3 {
+                font-size: 1.6rem;
+            }
+            
+            .research-intro p {
+                font-size: 1rem;
+            }
+        }
+
+
+        /* Enhanced Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(124, 124, 248, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .project-card:hover::before,
+        .project-card:active::before {
+            left: 100%;
+        }
+
+        .project-card:hover,
+        .project-card:active {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(124, 124, 248, 0.3);
+            border-color: rgba(124, 124, 248, 0.5);
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            color: #7c7cf8;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-icon,
+        .project-card:active .project-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: #ff77c6;
+        }
+
+        .project-card h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            min-height: 44px; /* Touch target minimum */
+            background: linear-gradient(45deg, #7c7cf8, #ff77c6);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff77c6, #7c7cf8);
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::before,
+        .btn:active::before {
+            left: 0;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:hover,
+        .btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(124, 124, 248, 0.4);
+        }
+
+        /* Enhanced Contact Section */
+        .contact-content {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .contact-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            transition: all 0.3s ease;
+            min-width: 44px; /* Touch target */
+            padding: 1rem;
+            border-radius: 15px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .contact-item:hover,
+        .contact-item:active {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #7c7cf8;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover i,
+        .contact-item:active i {
+            color: #ff77c6;
+            transform: scale(1.2);
+        }
+
+        .contact-item span {
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Loading Screen - Updated */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .loader-rings {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .ring {
+            position: absolute;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+        
+        .ring:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            border-top: 3px solid #7c7cf8;
+            border-right: 3px solid #7c7cf8;
+            animation-duration: 1.5s;
+        }
+        
+        .ring:nth-child(2) {
+            width: 75px;
+            height: 75px;
+            top: 12.5px;
+            left: 12.5px;
+            border-bottom: 3px solid #ff77c6;
+            border-left: 3px solid #ff77c6;
+            animation-duration: 2s;
+            animation-direction: reverse;
+        }
+        
+        .ring:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            top: 25px;
+            left: 25px;
+            border-top: 3px solid #00d4ff;
+            border-right: 3px solid #00d4ff;
+            animation-duration: 1s;
+        }
+        
+        .loading-text {
+            color: white;
+            font-size: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            text-align: center;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .loader-rings {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .ring:nth-child(1) {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .ring:nth-child(2) {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                left: 10px;
+            }
+            
+            .ring:nth-child(3) {
+                width: 40px;
+                height: 40px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+            }
+        }
+
+
+        /* Enhanced Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ENHANCED MOBILE RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            /* Mobile Header */
+            .header {
+                padding: 1rem 3%;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(15, 15, 35, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: left 0.3s ease;
+                gap: 3rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                min-width: 200px;
+                text-align: center;
+            }
+
+            /* Mobile Logo */
+            .logo img {
+                height: 35px;
+            }
+
+            /* Mobile Hero */
+            .hero {
+                padding: 0 1rem;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 2.5rem 2rem;
+                margin: 0 0.5rem;
+                border-radius: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .typing-text {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Mobile Social Links */
+            .social-links {
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            /* Mobile Sections */
+            .section {
+                padding: 4rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
+            }
+
+            /* Mobile About */
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .about-image img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-image::before {
+                top: -15px;
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+            }
+
+            .about-text {
+                padding: 2rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            /* Mobile Skills */
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skill-category {
+                padding: 2rem;
+            }
+
+            .skill-category h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Mobile Projects */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-card {
+                padding: 2rem;
+                border-radius: 20px;
+            }
+
+            .project-icon {
+                font-size: 3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .project-card p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            /* Mobile Contact */
+            .contact-content {
+                padding: 3rem 2rem;
+                border-radius: 20px;
+            }
+
+            .contact-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .contact-content p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .contact-item {
+                padding: 1.5rem;
+            }
+
+            .contact-item i {
+                font-size: 2rem;
+            }
+
+            .contact-item span {
+                font-size: 1rem;
+            }
+
+            /* Mobile Footer */
+            .footer {
+                padding: 2rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra Small Mobile Devices */
+        @media (max-width: 480px) {
+            .logo img {
+                height: 30px;
+            }
+            
+            .about-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+
+            .typing-text {
+                font-size: 1rem;
+            }
+
+            .hero-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .skill-category,
+            .project-card,
+            .about-text,
+            .contact-content {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Landscape Mobile Optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 1rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .project-card:hover {
+                transform: none;
+            }
+            
+            .social-links a:hover {
+                transform: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+            
+            /* Use active states instead */
+            .project-card:active {
+                transform: scale(0.98);
+            }
+            
+            .social-links a:active {
+                transform: scale(0.95);
+            }
+            
+            .btn:active {
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-container">
+            <div class="loader-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <div class="loading-text">Loading, Please Wait...</div>
+        </div>
+    </div>
+
+
+    <!-- Animated Background -->
+    <div class="background"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <img src="mylogo.png" alt="Juhen Fashikha Wildan - Personal Brand Logo">
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Juhen Fashikha Wildan</h1>
+            <h2>Tech Enthusiast | Robotics & AI Engineer</h2>
+            <div class="typing-text" id="typing-text"></div>
+            <p>Student at Airlangga University | Intern at Yamaha Corporation</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/juhenfw" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/juhenfw" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:juhenwildan@gmail.com" aria-label="Email Contact"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=7VxM9hwAAAAJ&hl=id" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://instagram.com/juhenfw_" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/juhenfw_" target="_blank" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="itsme.png" alt="Juhen Fashikha Wildan - Professional Portrait Photo, Machine Learning Engineer at Airlangga University" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h3>Passionate About Innovation</h3>
+                    <p>As an enthusiastic undergraduate student in Technology, I am continually pursuing knowledge and experiences to build a solid foundation in Robotics and Artificial Intelligence. My commitment goes beyond exploring personal potential—I aim to bridge academic knowledge with practical insights that drive real-world innovation.</p>
+                    <p>The complexities of modern technology and the transformative impact of innovations in this realm have captivated me throughout my journey. From theoretical concepts to practical applications, I strive to understand every facet of Robotics and Artificial Intelligence, always seeking to push the boundaries of what's possible.</p>
+                    <p>I firmly believe that collaboration and hands-on experience are fundamental to professional growth. This philosophy drives me to actively participate in group projects and pursue internship opportunities that allow me to apply theoretical knowledge in real-world scenarios, creating meaningful solutions for tomorrow's challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills & Technologies</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>C/C++</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 50%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>MATLAB</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <div class="skill-item">
+                        <span>TensorFlow</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>PyTorch</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>OpenCV</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-microchip"></i> Hardware & IoT</h3>
+                    <div class="skill-item">
+                        <span>Arduino</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>ESP32</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Robotics</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research & Publications Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Research & Publications</h2>
+            
+            <!-- Research Overview -->
+            <div class="research-overview fade-in">
+                <div class="research-intro">
+                    <h3>Research Focus</h3>
+                    <p>My research interests focus on robotics integrated with Artificial Intelligence and Internet of Things (IoT). I am particularly passionate about developing smart robots and solutions that can address modern real-world challenges through current industry technologies.</p>
+                </div>
+                
+                <!-- Research Interests Tags -->
+                <div class="research-interests">
+                    <div class="interest-tag">Robotics</div>
+                    <div class="interest-tag">Artificial Intelligence</div>
+                    <div class="interest-tag">Internet of Things</div>
+                    <div class="interest-tag">Autonomous Systems</div>
+                </div>
+            </div>
+            
+            <!-- Publications Section -->
+            <div class="publications-section fade-in">
+                <h3><i class="fas fa-file-alt"></i> Published Research</h3>
+                <div class="publications-container">
+                    <div class="publication-item featured">
+                        <div class="pub-header">
+                            <h5>A Review: Artificial Intelligence Related to Agricultural Equipment Integrated with the Internet of Things</h5>
+                            <span class="pub-status published">Published</span>
+                        </div>
+                        <p class="pub-authors"><strong>Juhen Fashikha Wildan</strong></p>
+                        <p class="pub-venue">Journal of Advanced Technology and Multidiscipline (JATM), Vol. 02, No. 02, 2023, pp. 47-60</p>
+                        <p class="pub-details">
+                            <strong>E-ISSN:</strong> 2964-6162 | 
+                            <strong>Publisher:</strong> Universitas Airlangga, Faculty of Advanced Technology and Multidiscipline
+                        </p>
+                        <p class="pub-abstract">This comprehensive review paper analyzes the integration of AI technologies (Fuzzy Logic, ANN, ML, DL, GA, SVM, KNN, DSS) with IoT systems in agricultural equipment. The research covers applications in soil monitoring, irrigation, fertilizer spraying, pest control, harvesting, forecasting, and yield monitoring for the period 2019-2023.</p>
+                        <div class="pub-keywords">
+                            <span class="keyword">Artificial Intelligence (AI)</span>
+                            <span class="keyword">Internet of Things</span>
+                            <span class="keyword">Agriculture</span>
+                            <span class="keyword">Smart Farming</span>
+                            <span class="keyword">Integration of AI and IoT</span>
+                        </div>
+                        <div class="pub-links">
+                            <a href="https://e-journal.unair.ac.id/JATM/article/view/51440" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> View Article
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=7VxM9hwAAAAJ" class="pub-link" target="_blank">
+                                <i class="fas fa-graduation-cap"></i> Google Scholar
+                            </a>
+                            <a href="mailto:juhenwildan@gmail.com?subject=Request for Research Paper" class="pub-link">
+                                <i class="fas fa-envelope"></i> Request Paper
+                            </a>
+                        </div>
+
+                        <div class="pub-license">
+                            <i class="fab fa-creative-commons"></i>
+                            <span>Licensed under Creative Commons Attribution 4.0 International License</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Research Metrics -->
+            <!--<div class="research-metrics fade-in">-->
+            <!--    <h3><i class="fas fa-chart-bar"></i> Research Impact</h3>-->
+            <!--    <div class="metrics-grid">-->
+            <!--        <div class="metric-item">-->
+            <!--            <div class="metric-number">1</div>-->
+            <!--            <div class="metric-label">Published Paper</div>-->
+            <!--        </div>-->
+            <!--        <div class="metric-item">-->
+            <!--            <div class="metric-number">2023</div>-->
+            <!--            <div class="metric-label">Publication Year</div>-->
+            <!--        </div>-->
+            <!--        <div class="metric-item">-->
+            <!--            <div class="metric-number">14</div>-->
+            <!--            <div class="metric-label">Pages</div>-->
+            <!--        </div>-->
+            <!--        <div class="metric-item">-->
+            <!--            <div class="metric-number">Open Access</div>-->
+            <!--            <div class="metric-label">Availability</div>-->
+            <!--        </div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid fade-in">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-route"></i></div>
+                    <h3>Ant Colony Optimization</h3>
+                    <p>Advanced path planning algorithm using swarm intelligence for route optimization. Implemented in Python with visualization capabilities and real-time performance analysis.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Juhenfw/AI-for-Optimization-using-Ant-Colony" class="btn" target="_blank"><span>View Code</span></a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-qrcode"></i></div>
+                    <h3>QR Code Detection</h3>
+                    <p>Real-time QR code detection system using computer vision techniques and mvsdk library (industrial camera) for high-performance scanning with 96% accuracy rate.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Juhenfw/QRCode-Camera" class="btn" target="_blank"><span>View Code</span></a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Follow Me Robot</h3>
+                    <p>Autonomous robot with object tracking capabilities using Lidar and UWB Indoor Tracking Sensor for intelligent navigation and obstacle avoidance.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Juhenfw/Robot-Follow-Me" class="btn" target="_blank"><span>View Code</span></a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <h3>IoT Weather Monitoring</h3>
+                    <p>ESP32-based environmental monitoring system with multiple sensors for real-time weather data collection, analysis, and cloud integration.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Juhenfw/ESP32-PenutupJemuranOtomatis-IoT" class="btn" target="_blank"><span>View Code</span></a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-broom"></i></div>
+                    <h3>Smart Adaptive Cleaner</h3>
+                    <p>Intelligent cleaning robot simulation using Webots 2021a with adaptive algorithms for efficient cleaning patterns and room mapping.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/juhenfw/Smart-Adaptive-Cleaner-El-Roomba" class="btn" target="_blank"><span>View Code</span></a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-eye"></i></div>
+                    <h3>YOLO Object Detection</h3>
+                    <p>High-performance object detection using YOLO with TensorRT optimization for real-time inference at 200+ FPS on RTX 4060 GPU.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn"><span>Coming Soon</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-content fade-in">
+                <h3>Let's collaborate on exciting projects!</h3>
+                <p>I'm always open to discussing new opportunities, research collaborations, or just having a chat about technology and innovation. Feel free to reach out!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>juhenwildan@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Surabaya, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <span>Airlangga University</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Juhen Fashikha Wildan. Made with ❤️ and lots of ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', () => {
+            document.getElementById('loading').style.display = 'none';
+        });
+
+
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Enhanced typing animation
+        const texts = [
+            "Machine Learning Projects",
+            "IoT Projects",
+            "Microcontroller Projects",
+            "Computer Vision Projects",
+            "Research on Robotics & AI"
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+        
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeText, speed);
+        }
+        
+        typeText();
+        
+        // Enhanced floating particles with mobile optimization
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const isMobile = window.innerWidth <= 768;
+            const particleCount = isMobile ? 40 : 80; // Reduce particles on mobile
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size
+                const sizes = ['small', 'medium', 'large'];
+                particle.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+                
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        // Recreate particles on resize
+        window.addEventListener('resize', () => {
+            const particlesContainer = document.getElementById('particles');
+            particlesContainer.innerHTML = '';
+            createParticles();
+        });
+        
+        // Enhanced scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', handleScrollAnimations);
+        handleScrollAnimations();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Enhanced header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.8)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Enhanced project card interactions for mobile
+        document.querySelectorAll('.project-card').forEach(card => {
+            // Touch events for mobile
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'translateY(-10px) scale(1.01)';
+            });
+            
+            card.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                }, 150);
+            });
+            
+            // Mouse events for desktop
+            card.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(-20px) scale(1.02)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        // Prevent zoom on double tap for iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Optimize animations for mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            // Reduce animation complexity on mobile
+            document.documentElement.style.setProperty('--animation-duration', '0.2s');
+        }
+    </script>
+</body>
+</html>
