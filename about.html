@@ -526,16 +526,19 @@
         }
 
         .about-main-content {
-            display: grid;
-            grid-template-columns: minmax(300px, 400px) 1fr;
+            display: flex;
+            flex-wrap: wrap;
             gap: var(--space-4xl);
-            align-items: start;
+            align-items: flex-start;
+            justify-content: center; /* Centered for better layout */
             margin-bottom: var(--space-5xl);
         }
 
         .about-image-container {
             position: relative;
             text-align: center;
+            flex: 1 1 300px; /* Flexible sizing */
+            max-width: 400px;
         }
 
         .about-image-wrapper {
@@ -618,6 +621,8 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             box-shadow: var(--glass-shadow);
+            flex: 1 1 500px; /* Flexible sizing for text content */
+            max-width: 700px;
         }
 
         .about-text-content h2 {
@@ -711,6 +716,7 @@
             gap: var(--space-3xl);
             position: relative;
             z-index: 1;
+            justify-content: center;
         }
 
         .skill-category {
@@ -723,6 +729,8 @@
             transition: all var(--transition-normal);
             position: relative;
             overflow: hidden;
+            max-width: 400px; /* Limit width for better centering */
+            margin: 0 auto;
         }
 
         .skill-category::before {
@@ -910,7 +918,7 @@
 
         .timeline-content {
             background: var(--glass-bg);
-            padding: var(--space-3xl);
+            padding: var(--space-2xl); /* Adjusted padding for rapi */
             border-radius: var(--radius-2xl);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -919,6 +927,9 @@
             position: relative;
             transition: all var(--transition-normal);
             box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm); /* Added gap for inner elements */
         }
 
         .timeline-content:hover {
@@ -1031,8 +1042,8 @@
             }
 
             .about-main-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
                 gap: var(--space-2xl);
             }
 
@@ -1082,8 +1093,8 @@
         /* Small Devices (phones, 480px and up) */
         @media (min-width: 480px) and (max-width: 767px) {
             .about-main-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
                 gap: var(--space-3xl);
             }
 
@@ -1138,8 +1149,8 @@
             }
 
             .about-main-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
                 gap: var(--space-3xl);
             }
 
@@ -1640,7 +1651,7 @@
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2025 Juhen Fashikha Wildan. Crafted with ❤️ and endless ☕</p>
+            <p>© 2025 Juhen Fashikha Wildan. Crafted with ❤️ and endless ☕</p>
         </div>
     </footer>
 
