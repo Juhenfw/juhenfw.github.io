@@ -6,7 +6,7 @@ A **Sci-Fi / Cyberpunk** themed interactive portfolio website that simulates a "
 
 🌐 **Live Demo:** [juhenfw.github.io](https://juhenfw.github.io)
 
-![Portfolio Preview](assets/preview.png)
+![Portfolio Preview](preview_web.png)
 *(Note: Replace `assets/preview.png` with your actual website screenshot)*
 
 ---
