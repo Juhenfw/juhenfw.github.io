@@ -10,8 +10,7 @@ Website portofolio interaktif bertema **Sci-Fi / Cyberpunk** yang mensimulasikan
 
 🌐 **Demo Langsung:** [juhenfw.github.io](https://juhenfw.github.io)
 
-![Pratinjau Portofolio Dinamis](assets/preview.gif)
-*(Catatan: Ganti `assets/preview.gif` dengan screenshot/GIF website Anda)*
+![Pratinjau Portofolio Dinamis](preview_web.gif)
 
 ---
 
