@@ -1,3 +1,7 @@
+<div align="right">
+  🇺🇸 <strong>English</strong> | <a href="README.id.md">🇮🇩 Bahasa Indonesia</a>
+</div>
+
 # 🧠 Neural Network Portfolio
 
 > **"Bridging academic knowledge with real-world innovation."**
