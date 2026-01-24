@@ -1,1268 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Juhen Fashikha Wildan - Tech Enthusiast & AI Researcher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juhen | Personal</title>
+
+    <link rel="icon" type="image/png" href="assets/images/logo/logo.png">
     
-    <!-- Enhanced Meta Tags -->
-    <meta name="description" content="Juhen Fashikha Wildan - Machine Learning Enthusiast, Robotics & AI Engineer, Researcher at Airlangga University. Explore my research, projects, and innovations in AI and IoT.">
-    <meta name="keywords" content="Machine Learning, AI, Robotics, Computer Vision, IoT, Python, TensorFlow, PyTorch, Research, Juhen Fashikha Wildan">
-    <meta name="author" content="Juhen Fashikha Wildan">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Juhen Fashikha Wildan - Tech Enthusiast & AI Researcher">
-    <meta property="og:description" content="Explore cutting-edge research and projects in AI, Robotics, and IoT">
-    <meta property="og:image" content="mylogo.png">
-    <meta property="og:url" content="https://juhenfw.github.io">
-    <meta property="og:type" content="website">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="mylogo.png">
-    <link rel="shortcut icon" type="image/png" href="mylogo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="mylogo.png">
-    
-    <!-- Premium Font Loading with fallbacks -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="mylogo.png" as="image">
-    <link rel="preload" href="itsme.png" as="image">
-    
-    <!-- External Resources with fallback -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-    
-    <style>
-        :root {
-            /* Enhanced Responsive Variables */
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            
-            --primary-color: #667eea;
-            --secondary-color: #f093fb;
-            --accent-color: #4facfe;
-            --success-color: #43e97b;
-            
-            /* Dark Theme Colors */
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #1a1a2e;
-            --bg-tertiary: #16213e;
-            --bg-quaternary: #0f3460;
-            
-            /* Glass Morphism */
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            
-            /* Text Colors */
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.85);
-            --text-tertiary: rgba(255, 255, 255, 0.65);
-            --text-muted: rgba(255, 255, 255, 0.45);
-            
-            /* Shadows */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.16);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.24);
-            --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.32);
-            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.4);
-            
-            /* Transitions */
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Responsive Border Radius */
-            --radius-sm: clamp(6px, 1vw, 8px);
-            --radius-md: clamp(12px, 2vw, 16px);
-            --radius-lg: clamp(18px, 3vw, 24px);
-            --radius-xl: clamp(24px, 4vw, 32px);
-            --radius-full: 9999px;
-            
-            /* Responsive Spacing */
-            --space-xs: clamp(0.25rem, 1vw, 0.5rem);
-            --space-sm: clamp(0.5rem, 2vw, 1rem);
-            --space-md: clamp(0.75rem, 3vw, 1.5rem);
-            --space-lg: clamp(1rem, 4vw, 2rem);
-            --space-xl: clamp(1.5rem, 5vw, 3rem);
-            --space-2xl: clamp(2rem, 6vw, 4rem);
-            --space-3xl: clamp(3rem, 8vw, 6rem);
-            
-            /* Container Sizes */
-            --container-sm: 640px;
-            --container-md: 768px;
-            --container-lg: 1024px;
-            --container-xl: 1280px;
-            --container-2xl: 1536px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-            font-size: clamp(14px, 2vw, 16px);
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            min-height: 100vh;
-            min-height: 100svh; /* Support for new viewport units */
-            position: relative;
-        }
-
-        /* Support for various viewport sizes */
-        @supports (height: 100dvh) {
-            body {
-                min-height: 100dvh;
-            }
-        }
-
-        /* Simplified Animated Background for lighter load */
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at top, var(--bg-secondary) 0%, var(--bg-primary) 70%);
-            z-index: -2;
-        }
-
-        .background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
-            animation: none; /* Remove animation for performance */
-        }
-
-        .background::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            animation: none; /* Remove animation for performance */
-        }
-
-        /* Simplified Loading Screen */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
-        }
-        
-        .loading-text {
-            color: var(--text-primary);
-            font-size: 1.25rem;
-            font-weight: 500;
-        }
-
-        /* Enhanced Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: var(--space-md) 5%;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-            transition: all var(--transition-normal);
-            box-shadow: var(--shadow-sm);
-            will-change: transform, background-color;
-        }
-
-        .header.scrolled {
-            background: rgba(10, 10, 15, 0.95);
-            box-shadow: var(--shadow-md);
-            padding: var(--space-sm) 5%;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: var(--container-2xl);
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            z-index: 1001;
-        }
-
-        .logo img {
-            height: clamp(40px, 8vw, 48px);
-            width: auto;
-            transition: all var(--transition-normal);
-            filter: brightness(1.1) contrast(1.1);
-            border-radius: var(--radius-sm);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo:hover img {
-            filter: brightness(1.3) contrast(1.2) drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: var(--space-xs);
-            z-index: 1002;
-            border-radius: var(--radius-sm);
-            transition: all var(--transition-fast);
-            background: transparent;
-            border: none;
-            touch-action: manipulation;
-        }
-
-        .mobile-menu-toggle:hover {
-            background: var(--glass-bg);
-        }
-
-        .mobile-menu-toggle:focus {
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
-        }
-
-        .mobile-menu-toggle span {
-            width: clamp(24px, 5vw, 28px);
-            height: 3px;
-            background: var(--text-primary);
-            margin: 3px 0;
-            transition: all var(--transition-normal);
-            border-radius: 2px;
-            transform-origin: center;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-6px, 6px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-6px, -6px);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: var(--space-xl);
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: clamp(0.875rem, 2vw, 0.95rem);
-            position: relative;
-            transition: all var(--transition-normal);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-full);
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--primary-gradient);
-            transition: width var(--transition-normal);
-            border-radius: 1px;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text-primary);
-            background: var(--glass-bg);
-        }
-
-        .nav-links a:hover::before,
-        .nav-links a.active::before {
-            width: 80%;
-        }
-
-        /* Enhanced Hero Section */
-        .hero {
-            min-height: 100vh;
-            min-height: 100svh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding: var(--space-2xl) var(--space-lg);
-            padding-top: clamp(80px, 15vh, 120px);
-        }
-
-        .hero-content {
-            background: var(--glass-bg);
-            padding: var(--space-2xl) var(--space-xl); /* Reduced padding for better layout */
-            border-radius: var(--radius-xl);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            animation: heroFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            max-width: 800px; /* Reduced max-width for tighter layout */
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        /* Removed shimmer for performance */
-        /* @keyframes heroShimmer removed */
-
-        @keyframes heroFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 6vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: var(--space-md);
-            background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 30%, var(--secondary-color) 70%, var(--accent-color) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 4s ease-in-out infinite alternate;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-top: var(--space-lg); /* Adjusted margin */
-        }
-
-        @keyframes titleGlow {
-            from { 
-                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.4));
-            }
-            to { 
-                filter: drop-shadow(0 0 40px rgba(240, 147, 251, 0.6));
-            }
-        }
-
-        .hero h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1rem, 3.5vw, 2rem);
-            font-weight: 600;
-            margin-bottom: var(--space-lg); /* Adjusted margin */
-            color: var(--text-secondary);
-            letter-spacing: -0.01em;
-            line-height: 1.3;
-        }
-
-        .typing-text {
-            font-size: clamp(0.875rem, 3vw, 1.5rem);
-            margin-bottom: var(--space-lg); /* Adjusted margin */
-            min-height: 2.5rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            letter-spacing: 0.5px;
-            border: none !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero p {
-            font-size: clamp(0.875rem, 2.5vw, 1.2rem);
-            margin-bottom: var(--space-lg); /* Adjusted margin */
-            color: var(--text-tertiary);
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        /* Enhanced Navigation Buttons */
-        .nav-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-            gap: var(--space-md);
-            margin: var(--space-xl) 0; /* Adjusted margin */
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-xs);
-            padding: var(--space-md) var(--space-lg);
-            background: var(--glass-bg);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: clamp(0.875rem, 2vw, 0.95rem);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            min-height: 52px;
-            letter-spacing: 0.3px;
-            cursor: pointer;
-            touch-action: manipulation;
-        }
-
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-gradient);
-            transition: left var(--transition-normal);
-            z-index: -1;
-        }
-
-        .nav-btn:hover::before,
-        .nav-btn:focus::before {
-            left: 0;
-        }
-
-        .nav-btn:hover,
-        .nav-btn:focus {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--primary-color);
-        }
-
-        .nav-btn:active {
-            transform: translateY(-2px);
-        }
-
-        .nav-btn i {
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            flex-shrink: 0;
-        }
-
-        /* Enhanced Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            margin-top: var(--space-xl); /* Adjusted margin */
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: clamp(52px, 10vw, 64px);
-            height: clamp(52px, 10vw, 64px);
-            background: var(--glass-bg);
-            color: var(--text-primary);
-            border-radius: var(--radius-full);
-            text-decoration: none;
-            transition: all var(--transition-normal);
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            cursor: pointer;
-            touch-action: manipulation;
-        }
-
-        .social-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-gradient);
-            opacity: 0;
-            transition: opacity var(--transition-normal);
-            z-index: -1;
-        }
-
-        .social-links a:hover::before,
-        .social-links a:focus::before {
-            opacity: 1;
-        }
-
-        .social-links a:hover,
-        .social-links a:focus {
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .social-links a:active {
-            transform: translateY(-4px) scale(1.05);
-        }
-
-        /* Enhanced Quick Stats */
-        .quick-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
-            gap: var(--space-lg);
-            margin: var(--space-2xl) 0; /* Adjusted margin */
-            width: 100%;
-        }
-
-        .stat-item {
-            text-align: center;
-            background: var(--glass-bg);
-            padding: var(--space-lg); /* Reduced padding */
-            border-radius: var(--radius-lg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-gradient);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 2.75rem);
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: var(--space-xs);
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: clamp(0.875rem, 2vw, 1rem);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-
-        /* Enhanced Footer */
-        .footer {
-            text-align: center;
-            padding: var(--space-2xl);
-            background: var(--glass-bg);
-            color: var(--text-tertiary);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-top: 1px solid var(--glass-border);
-            margin-top: var(--space-3xl);
-        }
-
-        .footer p {
-            font-size: clamp(0.875rem, 2vw, 0.95rem);
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
-
-        /* Comprehensive Responsive Design */
-        
-        /* Extra Small Devices (phones, 320px and up) */
-        @media (max-width: 479px) {
-            .header {
-                padding: var(--space-sm) 3%;
-            }
-
-            .hero {
-                padding: var(--space-xl) var(--space-sm);
-                padding-top: clamp(80px, 20vh, 100px);
-            }
-
-            .hero-content {
-                padding: var(--space-lg) var(--space-md); /* Further reduced for small screens */
-                margin: 0;
-                border-radius: var(--radius-md);
-            }
-
-            .nav-buttons {
-                grid-template-columns: 1fr;
-                gap: var(--space-sm);
-            }
-
-            .social-links {
-                gap: var(--space-sm);
-            }
-
-            .quick-stats {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-
-            .stat-item {
-                padding: var(--space-md); /* Reduced padding */
-            }
-        }
-
-        /* Small Devices (phones, 480px and up) */
-        @media (min-width: 480px) and (max-width: 767px) {
-            .quick-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Medium Devices (tablets, 768px and up) */
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                height: 100svh;
-                background: rgba(10, 10, 15, 0.98);
-                backdrop-filter: blur(25px);
-                -webkit-backdrop-filter: blur(25px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: left var(--transition-normal);
-                gap: var(--space-2xl);
-                border-top: 1px solid var(--glass-border);
-                z-index: 1001;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links a {
-                font-size: clamp(1.125rem, 4vw, 1.25rem);
-                padding: var(--space-md) var(--space-xl);
-                border-radius: var(--radius-md);
-                background: var(--glass-bg);
-                min-width: 60%;
-                text-align: center;
-                border: 1px solid var(--glass-border);
-            }
-        }
-
-        /* Large Devices (desktops, 1024px and up) */
-        @media (min-width: 1024px) {
-            .quick-stats {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .nav-buttons {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 500px;
-            }
-        }
-
-        /* Extra Large Devices (large desktops, 1200px and up) */
-        @media (min-width: 1200px) {
-            .hero-content {
-                padding: var(--space-2xl) var(--space-2xl); /* Adjusted for better layout */
-            }
-        }
-
-        /* Ultra Wide Screens */
-        @media (min-width: 1600px) {
-            .nav {
-                max-width: 1600px;
-                padding: 0 var(--space-lg);
-            }
-
-            .hero-content {
-                max-width: 1000px;
-            }
-        }
-
-        /* Landscape Orientation Adjustments */
-        @media (orientation: landscape) and (max-height: 600px) {
-            .hero {
-                min-height: 100vh;
-                padding: var(--space-lg) var(--space-md);
-            }
-
-            .hero-content {
-                padding: var(--space-lg) var(--space-lg); /* Adjusted */
-            }
-
-            .hero h1 {
-                font-size: clamp(2rem, 8vh, 3rem);
-                margin-top: var(--space-md);
-            }
-
-            .hero h2 {
-                font-size: clamp(1rem, 4vh, 1.5rem);
-            }
-
-            .quick-stats {
-                margin: var(--space-lg) 0; /* Adjusted */
-            }
-        }
-
-        /* High DPI Screens */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .logo img {
-                image-rendering: -webkit-optimize-contrast;
-            }
-        }
-
-        /* Accessibility Improvements */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .background::before,
-            .background::after {
-                animation: none;
-            }
-        }
-
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: light) {
-            /* Light mode overrides if needed */
-        }
-
-        /* High Contrast Mode */
-        @media (prefers-contrast: high) {
-            :root {
-                --text-primary: #ffffff;
-                --text-secondary: #ffffff;
-                --glass-border: rgba(255, 255, 255, 0.4);
-                --glass-bg: rgba(255, 255, 255, 0.15);
-            }
-        }
-
-        /* Focus States for Better Accessibility */
-        .nav-btn:focus,
-        .social-links a:focus,
-        .nav-links a:focus,
-        .mobile-menu-toggle:focus {
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
-        }
-
-        /* Print Styles */
-        @media print {
-            .loading,
-            .background,
-            .social-links,
-            .mobile-menu-toggle {
-                display: none !important;
-            }
-
-            .hero-content {
-                background: white;
-                color: black;
-                box-shadow: none;
-            }
-        }
-
-        /* Hover Effects Only for Devices That Support It */
-        @media (hover: hover) and (pointer: fine) {
-            .nav-btn:hover,
-            .social-links a:hover,
-            .stat-item:hover {
-                /* Hover effects already defined above */
-            }
-        }
-
-        /* Touch Device Optimizations */
-        @media (hover: none) and (pointer: coarse) {
-            .nav-btn,
-            .social-links a {
-                min-height: 48px; /* Minimum touch target size */
-            }
-
-            .mobile-menu-toggle {
-                min-width: 48px;
-                min-height: 48px;
-            }
-        }
-
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(20px)) {
-            .header {
-                background: rgba(10, 10, 15, 0.95);
-            }
-
-            .hero-content {
-                background: rgba(26, 26, 46, 0.9);
-            }
-
-            .nav-btn {
-                background: rgba(26, 26, 46, 0.8);
-            }
-
-            .social-links a {
-                background: rgba(26, 26, 46, 0.8);
-            }
-
-            .stat-item {
-                background: rgba(26, 26, 46, 0.8);
-            }
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="loading-text">Loading...</div>
+    <div id="boot-screen">
+        <div class="terminal-loader">
+            <div class="terminal-header">
+                <span class="status-dot"></span> SYSTEM INITIALIZATION
+            </div>
+            <div id="terminal-text"></div>
+            <div class="progress-line"></div>
+        </div>
     </div>
 
-    <!-- Animated Background -->
-    <div class="background"></div>
+    <div id="archive-window" class="virtual-window">
+        <div class="window-header">
+            <span>SYSTEM DATABASE</span>
+            <button class="win-close" onclick="closeArchive()">&times;</button>
+        </div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav">
-            <a href="index.html" class="logo" aria-label="Juhen Fashikha Wildan - Home">
-                <img src="mylogo.png" alt="Juhen Fashikha Wildan - Personal Brand Logo">
-            </a>
-            
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="window-tabs">
+            <button class="tab-btn active" onclick="switchArchiveTab('project')">PROJECTS & RESEARCH</button>
+            <button class="tab-btn" onclick="switchArchiveTab('blog')">BLOGS / ARTICLES</button>
+        </div>
+        
+        <div class="window-content" style="display: block;">
+            <div class="table-responsive">
+                <table class="archive-table">
+                    <thead>
+                        <tr>
+                            <th width="15%">YEAR</th>
+                            <th width="50%">TITLE</th>
+                            <th width="20%">TYPE</th>
+                            <th width="15%">LINK</th>
+                        </tr>
+                    </thead>
+                    <tbody id="archive-list-body">
+                        </tbody>
+                </table>
+            </div>
+            <div id="empty-state" style="display:none;">// DATA NOT FOUND</div>
+        </div>
+    </div>
+
+    <div id="ui-layer"></div>
+
+        <div id="filter-dock">
+            <button class="filter-btn" onclick="openWindow('about')" title="Profile & CV">
+                PROFILE
             </button>
-            
-            <ul class="nav-links" id="nav-links" role="navigation">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <main>
-        <section class="hero" role="main">
-            <div class="hero-content">
-                <h1>Juhen Fashikha Wildan</h1>
-                <h2>Tech Enthusiast • Robotics & AI Engineer • Learner</h2>
-                <div class="typing-text" id="typing-text" aria-live="polite"></div>
-                <p>Student at Airlangga University • ex-Intern at Yamaha Corporation</p>
-                
-                <!-- Navigation Buttons -->
-                <div class="nav-buttons">
-                    <a href="about.html" class="nav-btn" aria-label="Learn more about me">
-                        <i class="fas fa-user" aria-hidden="true"></i>
-                        <span>About Me</span>
-                    </a>
-                    <a href="research.html" class="nav-btn" aria-label="View my research work">
-                        <i class="fas fa-microscope" aria-hidden="true"></i>
+            <div class="dock-separator"></div>
+
+            <button class="filter-btn active" onclick="filterMind('all')" title="Show All">
+                ALL
+            </button>
+            <button class="filter-btn" onclick="filterMind('research')" title="Academic Papers">
+                RESEARCH
+            </button>
+            <button class="filter-btn" onclick="filterMind('project')" title="Engineering Projects">
+                PROJECTS
+            </button>
+            <button class="filter-btn" onclick="filterMind('blog')" title="Articles & Thoughts">
+                BLOG
+            </button>
+
+            <div class="dock-separator"></div>
+
+            <button class="filter-btn" onclick="openWindow('contact')" title="Send Message">
+                CONTACT
+            </button>
+        </div>
+
+    <div id="window-about" class="virtual-window">
+        <div class="window-header">
+            <span>PROFILE DATA</span>
+            <button class="win-close" onclick="closeWindow('about')">×</button>
+        </div>
+        <div class="window-content">
+            <div class="profile-section">
+                <img src="assets/images/profile/myprof.jpg" alt="Profile" class="holo-img">
+                <h2>Juhen Fashikha Wildan</h2>
+                <p class="role-highlight">Robotics & AI Engineer</p>
+                <p class="bio-text">
+                    UNAIR's Student, focused on AI (mostly computer vision), with some work in robotics. 
+                    Always looking for better ways to make AI work in real applications.
+                </p>
+                <a href="assets/files/soon.pdf" class="btn-download">Download CV</a>
+            </div>
+
+            <div class="stats-section">
+                <h3 class="holo-title">SKILL MATRIX</h3>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <span>Computer Vision</span>
+                        <div class="progress-bar"><div class="fill" style="width: 95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Robotics</span>
+                        <div class="progress-bar"><div class="fill" style="width: 75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Writing</span>
+                        <div class="progress-bar"><div class="fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
                         <span>Research</span>
-                    </a>
-                    <a href="projects.html" class="nav-btn" aria-label="Explore my projects">
-                        <i class="fas fa-code" aria-hidden="true"></i>
-                        <span>Projects</span>
-                    </a>
-                    <a href="contact.html" class="nav-btn" aria-label="Get in touch">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>Contact</span>
-                    </a>
+                        <div class="progress-bar"><div class="fill" style="width: 80%"></div></div>
+                    </div>
                 </div>
 
-                <!-- Quick Stats -->
-                <div class="quick-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="2">0</div>
-                        <div class="stat-label">Published Paper</div>
+                <h3 class="holo-title mt-4">CAREER TRAJECTORY</h3>
+                <div class="holo-timeline">
+                    <div class="tl-item">
+                        <span class="tl-date">February - August 2025</span>
+                        <h4>Process Automation Engineer Intern</h4>
+                        <p>Yamaha Corporation | PT. Yamaha Musical Products Indonesia - Working on cutting-edge robotics and automation projects 
+                            (mostly computer vision).</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="10">0</div>
-                        <div class="stat-label">Projects</div>
+                    <div class="tl-item">
+                        <span class="tl-date">12 June 2025</span>
+                        <h4>Published paper on IJRA</h4>
+                        <p>Tittle: Multi-microcontroller system for Mecanum robots with gripper-shooter mechanisms.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="2">0</div>
-                        <div class="stat-label">Years Experience</div>
+                    <div class="tl-item">
+                        <span class="tl-date">September 2024 - January 2025</span>
+                        <h4>Computer Vision Engineer Intern</h4>
+                        <p>PT. Adhikara Wiyasa Gani - QR Code Sorting System.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="94">0</div>
-                        <div class="stat-label">Python Proficiency</div>
+                    <div class="tl-item">
+                        <span class="tl-date">September 2024 - February 2025</span>
+                        <h4>Researcher</h4>
+                        <p>Kombo Unair (robotics community) - focused on writing scientific articles for publication in 
+                            academic journals.</p>
                     </div>
-                </div>
-                
-                <!-- Social Links -->
-                <div class="social-links">
-                    <a href="https://github.com/juhenfw" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-                        <i class="fab fa-github" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/juhenfw" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                        <i class="fab fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                    <a href="mailto:juhenwildan@gmail.com" aria-label="Email Contact">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=7VxM9hwAAAAJ&hl=id" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
-                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://instagram.com/juhenfw_" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://twitter.com/juhenfw_" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
-                        <i class="fab fa-twitter" aria-hidden="true"></i>
-                    </a>
+                    <div class="tl-item">
+                        <span class="tl-date">February 2024 - July 2024</span>
+                        <h4>Lab Assistant</h4>
+                        <p>Airlangga University (UNAIR) - providing hands-on support and maintaining a collaborative environment.</p>
+                    </div>
+                    <div class="tl-item">
+                        <span class="tl-date">2023</span>
+                        <h4>Published paper on JATM</h4>
+                        <p>Tittle: "A Review: Artificial Intelligence Related to Agricultural 
+                            Equipment Integrated with the Internet of Things"</p>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <p>© 2025 Juhen Fashikha Wildan. Crafted with ❤️ and endless ☕</p>
         </div>
-    </footer>
+    </div>
 
-    <script>
-        // Faster loading screen removal
-        window.addEventListener('load', () => {
-            const loading = document.getElementById('loading');
-            if (loading) {
-                loading.style.opacity = '0';
-                setTimeout(() => {
-                    loading.style.display = 'none';
-                }, 500); // Reduced timeout
-            }
-        });
-
-        // Enhanced mobile menu with smooth animations and better accessibility
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const navLinks = document.getElementById('nav-links');
-            const header = document.getElementById('header');
-
-            if (!mobileMenuToggle || !navLinks || !header) return;
-
-            // Mobile menu functionality
-            mobileMenuToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                const isActive = mobileMenuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
+    <div id="window-contact" class="virtual-window">
+        <div class="window-header">
+            <span>CONTACT ME</span>
+            <button class="win-close" onclick="closeWindow('contact')">×</button>
+        </div>
+        <div class="window-content contact-layout">
+            <div class="contact-info">
+                <h3 style="font-family: 'JetBrains Mono', monospace; color: #00ffc8; margin-top: 0;">
+                    Send a Message
+                </h3>
                 
-                // Update aria attributes for accessibility
-                mobileMenuToggle.setAttribute('aria-expanded', isActive.toString());
-                
-                // Prevent body scrolling when menu is open
-                document.body.style.overflow = isActive ? 'hidden' : '';
-                
-                // Focus management
-                if (isActive) {
-                    const firstLink = navLinks.querySelector('a');
-                    if (firstLink) firstLink.focus();
-                }
-            });
+                <p style="color: #ccc; line-height: 1.6; font-size: 0.95rem; margin-bottom: 30px;">
+                    I'm always excited to discuss new projects, innovative ideas, or potential collaborations. 
+                    <span style="color: #fff; font-weight: bold;">Let's explore how we can work together.<span>
+                    <!-- <span style="color: #fff; font-weight: bold;">diskusi teknis</span>,  -->
+                </p>
 
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
+                <div class="contact-details">
+                    <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-envelope" style="color: #00ffc8;"></i>
+                        <a href="mailto:juhenwildan@gmail.com" style="color: white; text-decoration: none; font-family: monospace; letter-spacing: 1px;">
+                            juhenwildan@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-map-marker-alt" style="color: #00ffc8;"></i>
+                        <span style="color: #aaa;">Surabaya, East Java, Indonesia</span>
+                    </div>
+                </div>
+            </div>
+            <form class="holo-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="4" placeholder="Message" required></textarea>
+                <button type="submit" class="btn-send">INITIATE SEND</button>
+            </form>
+        </div>
+    </div>
 
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                    mobileMenuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            // Enhanced header scroll effect with throttling
-            let ticking = false;
-            let lastScrollY = window.scrollY;
+    <div id="data-panel" class="panel-overlay">
+        <div class="panel-content">
+            <button class="close-btn" onclick="closePanel()">×</button>
             
-            function updateHeader() {
-                const currentScrollY = window.scrollY;
-                
-                if (currentScrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-                
-                // Hide header on scroll down, show on scroll up
-                if (Math.abs(currentScrollY - lastScrollY) > 10) {
-                    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                        header.style.transform = 'translateY(-100%)';
-                    } else {
-                        header.style.transform = 'translateY(0)';
-                    }
-                    lastScrollY = currentScrollY;
-                }
-                
-                ticking = false;
-            }
-
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateHeader);
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('scroll', requestTick, { passive: true });
-
-            // Keyboard navigation support
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    if (navLinks.classList.contains('active')) {
-                        mobileMenuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                        document.body.style.overflow = '';
-                        mobileMenuToggle.focus();
-                    }
-                }
-            });
-        });
-
-        // Enhanced typing animation with better performance
-        const texts = [
-            "Building AI Solutions",
-            "Developing Smart Robots",
-            "Creating IoT Systems", 
-            "Advancing Computer Vision",
-            "Innovating with Technology"
-        ];
-        
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingElement = document.getElementById('typing-text');
-        
-        function typeText() {
-            if (!typingElement) return;
+            <div class="panel-header">
+                <span id="panel-type" class="panel-badge">PROJECT</span>
+                <span id="panel-date" class="panel-year">2025</span>
+            </div>
             
-            const currentText = texts[textIndex];
+            <h2 id="panel-title">Judul Project</h2>
             
-            if (isDeleting) {
-                typingElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            // Add cursor effect
-            typingElement.style.borderRight = charIndex === currentText.length && !isDeleting ? 
-                '2px solid transparent' : '2px solid currentColor';
-            
-            if (!isDeleting && charIndex === currentText.length) {
-                setTimeout(() => isDeleting = true, 2500);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-            }
-            
-            const speed = isDeleting ? 50 : (Math.random() * 100 + 50);
-            setTimeout(typeText, speed);
-        }
-        
-        // Start typing animation after page load
-        setTimeout(typeText, 1500);
+            <div class="panel-body">
+                <p id="panel-desc">Deskripsi lengkap akan muncul di sini...</p>
+            </div>
 
-        // Enhanced counter animation with intersection observer
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + (target === 94 ? '%' : '+');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + (target === 94 ? '%' : '+');
-                }
-            }, 16);
-        }
+            <div class="panel-footer">
+                <a id="panel-link" href="#" target="_blank" class="action-btn">
+                    Open Source <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
-        // Intersection Observer for stats animation
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach((stat, index) => {
-                        const target = parseInt(stat.getAttribute('data-target'));
-                        setTimeout(() => {
-                            animateCounter(stat, target);
-                        }, index * 200);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
-
-        // Observe stats section
-        const statsSection = document.querySelector('.quick-stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Enhanced touch handling for mobile devices
-        let touchStartX = 0;
-        let touchStartY = 0;
-        
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        document.addEventListener('touchmove', (e) => {
-            if (!touchStartX || !touchStartY) return;
-            
-            const touchEndX = e.touches[0].clientX;
-            const touchEndY = e.touches[0].clientY;
-            
-            const diffX = touchStartX - touchEndX;
-            const diffY = touchStartY - touchEndY;
-            
-            // Prevent horizontal scrolling on mobile
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Prevent zoom on double tap for iOS
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', (event) => {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, { passive: false });
-
-        // Error handling for images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', function() {
-                console.warn(`Failed to load image: ${this.src}`);
-                // You can add fallback image or hide the element
-                this.style.display = 'none';
-            });
-        });
-
-        // Performance monitoring
-        if ('performance' in window) {
-            window.addEventListener('load', () => {
-                const perfData = performance.getEntriesByType('navigation')[0];
-                if (perfData && perfData.loadEventEnd - perfData.loadEventStart > 3000) {
-                    console.warn('Page load time is slower than expected');
-                }
-            });
-        }
-
-        // Reduce animations based on user preference
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.documentElement.style.setProperty('--transition-fast', '0.01ms');
-            document.documentElement.style.setProperty('--transition-normal', '0.01ms');
-            document.documentElement.style.setProperty('--transition-slow', '0.01ms');
-        }
-
-        // Service Worker registration for better caching (optional)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // Uncomment to enable service worker
-                // navigator.serviceWorker.register('/sw.js');
-            });
-        }
-    </script>
+    <script src="js/brain.js"></script>
+    <script src="js/sketch.js"></script>
+    
 </body>
 </html>
