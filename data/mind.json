@@ -1,0 +1,162 @@
+{
+  "profile": {
+    "name": "Juhen Fashikha Wildan",
+    "role": "Robotics & AI Engineer",
+    "tagline": "Bridging academic knowledge with real-world innovation.",
+    "location": "Surabaya, East Java, Indonesia",
+    "social": {
+      "github": "https://github.com/juhenfw",
+      "linkedin": "https://linkedin.com/in/juhenfw",
+      "email": "mailto:juhenwildan@gmail.com",
+      "twitter": "https://x.com/juhenfw_",
+      "instagram": "https://www.instagram.com/juhenfw_",
+      "scholar": "https://scholar.google.com/citations?user=7VxM9hwAAAAJ&hl=id",
+      "orcid": "https://orcid.org/0009-0009-9073-4625"
+    }
+  },
+  "nodes": [
+    {
+      "id": "exp-yamaha",
+      "type": "experience",
+      "title": "Process Automation Engineer Intern",
+      "content": "Yamaha Corporation | PT. Yamaha Musical Products Indonesia - Working on cutting-edge robotics and automation projects (mostly computer vision).",
+      "date": "February - August 2025",
+      "priority": 9
+    },
+    {
+      "id": "exp-cv",
+      "type": "experience",
+      "title": "Computer Vision Engineer Intern",
+      "content": "PT. Adhikara Wiyasa Gani - Developed QR code sorting systems using industrial cameras.",
+      "date": "September 2024 - January 2025",
+      "priority": 7
+    },
+    {
+      "id": "exp-researcher",
+      "type": "experience",
+      "title": "Researcher",
+      "content": "Kombo Unair (robotics community) - focused on writing scientific articles for publication in academic journals.",
+      "date": "September 2024 - February 2025",
+      "priority": 7
+    },
+    {
+      "id": "exp-lab-assist",
+      "type": "experience",
+      "title": "Lab Assistant",
+      "content": "Airlangga University (UNAIR) - providing hands-on support and maintaining a collaborative environment.",
+      "date": "February 2024 - July 2024",
+      "priority": 7
+    },
+
+
+    {
+      "id": "res-ijra",
+      "type": "research",
+      "title": "Multi-microcontroller System for Mecanum Robots",
+      "content": "Published in IJRA (2025). Tittle: \"Multi-microcontroller system for Mecanum robots with gripper-shooter\". Designed multi-microcontroller system for agricultural robotics with gripper-shooter mechanisms.",
+      "link": "http://doi.org/10.11591/ijra.v14i2.pp181-190",
+      "date": "2025-06-12",
+      "priority": 8
+    },
+    {
+      "id": "res-jatm",
+      "type": "research",
+      "title": "AI Used in Agriculture (Review)",
+      "content": "Published in JATM (2023). Title: \"A Review: Artificial Intelligence Related to Agricultural Equipment Integrated with the Internet of Things\". Analysis of AI integration with IoT in agricultural equipment.",
+      "link": "https://doi.org/10.20473/jatm.v2i2.51440",
+      "date": "2023-11-01",
+      "priority": 5
+    },
+
+
+    {
+      "id": "skill-cv",
+      "type": "skill",
+      "title": "Computer Vision",
+      "content": "Specific: Pytorch, OpenCV, Python, MVSDK, CNN, YOLO.",
+      "date": "Now",
+      "priority": 6
+    },
+    {
+      "id": "skill-robot",
+      "type": "skill",
+      "title": "Robotics",
+      "content": "Specific: C++, Arduino, ESP32, RaspberryPi, Linux, LiDar, UWB.",
+      "date": "Now",
+      "priority": 6
+    },
+    {
+      "id": "skill-write",
+      "type": "skill",
+      "title": "Writing",
+      "content": "Specific: Scientific paper, work report",
+      "date": "Now",
+      "priority": 6
+    },
+    {
+      "id": "skill-research",
+      "type": "skill",
+      "title": "Research",
+      "content": "Specific: DIY, Reserach Paper Based.",
+      "date": "Now",
+      "priority": 6
+    },
+
+
+    {
+      "id": "proj-qr",
+      "type": "project",
+      "title": "QR Code Detection",
+      "date": "February 2025",
+      "description": "Real-time QR Code detection project using mvsdk library for industrial camera application.",
+      "link": "https://github.com/Juhenfw/QRCode-Camera.git"
+    },
+    {
+      "id": "proj-penutup-jemuran",
+      "type": "project",
+      "title": "ESP32 Penutup Jemuran Otomatis berbasis IoT",
+      "date": "March 2025",
+      "description": "Sistem otomatis untuk penutup jemuran berbasis IoT dengan monitoring cuaca.",
+      "link": "https://github.com/Juhenfw/ESP32-PenutupJemuranOtomatis-IoT.git"
+    },
+    {
+      "id": "proj-el-roomba",
+      "type": "project",
+      "title": "Smart Adaptive Cleaner El Roomba (Simulation)",
+      "date": "2024",
+      "description": "Robot mobile pintar untuk cleaning adaptif dengan sensor dan navigasi otomatis.",
+      "link": "https://github.com/Juhenfw/Smart-Adaptive-Cleaner-El-Roomba.git"
+    },
+    {
+      "id": "proj-ant-colony",
+      "type": "project",
+      "title": "AI for Optimization using Ant Colony",
+      "date": "2024",
+      "description": "Dengan memanfaatkan algoritma Ant Colony Optimization, skrip ini menghitung rute optimal yang menghubungkan kantor-kantor kecamatan di seluruh Surabaya. Hasilnya adalah visualisasi jalur yang dapat diikuti untuk mengunjungi semua kantor kecamatan dengan jarak tempuh minimum.",
+      "link": "https://github.com/Juhenfw/AI-for-Optimization-using-Ant-Colony.git"
+    },
+
+
+    {
+      "id": "blog-ai-agriculture",
+      "type": "blog",
+      "title": "AI Revolution in Smart Agriculture: From Theory to Practice",
+      "date": "2024",
+      "description": "The Current State of Agricultural Challenges.",
+      
+      "isHidden": false,
+      
+      "link": "blog/article-01.html"
+    },
+
+
+    {
+      "id": "sys-archive",
+      "type": "archive",
+      "title": "View All",
+      "date": "Index",
+      "description": "Access full data.",
+      "link": "#"
+    }
+  ]
+}
