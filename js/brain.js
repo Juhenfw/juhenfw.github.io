@@ -281,6 +281,31 @@ function switchArchiveTab(type) {
     renderArchiveTable(type);
 }
 
+// --- [BARU] FUNGSI PENERJEMAH TANGGAL ---
+function parseDateScore(dateStr) {
+    if (!dateStr) return 0;
+    const s = dateStr.toString().toLowerCase();
+
+    // 1. Prioritas Tertinggi: "Now", "Present"
+    if (s.includes('now') || s.includes('present')) return 9999999999999;
+
+    // 2. Jika rentang (Sept 2024 - Jan 2025), ambil yang awal
+    let cleanDate = s.split('-')[0].trim(); 
+    
+    // 3. Coba baca sebagai tanggal standar
+    let timestamp = Date.parse(cleanDate);
+    
+    // 4. Jika gagal, cari angka tahun saja (misal "2024")
+    if (isNaN(timestamp)) {
+        let yearMatch = s.match(/(\d{4})/);
+        if (yearMatch) {
+            return new Date(yearMatch[0] + "-01-01").getTime();
+        }
+        return 0;
+    }
+    return timestamp;
+}
+
 function renderArchiveTable(filterType) {
     const tbody = document.getElementById('archive-list-body');
     const emptyState = document.getElementById('empty-state');
@@ -294,7 +319,9 @@ function renderArchiveTable(filterType) {
         return n.type !== 'blog'; // Project, Research, etc
     });
 
-    filteredData.sort((a, b) => (parseInt(b.date)||0) - (parseInt(a.date)||0));
+    // --- [UPDATE] LOGIKA SORTING BARU ---
+    // Menggunakan parseDateScore agar "Now", "Sept 2024", dll bisa urut
+    filteredData.sort((a, b) => parseDateScore(b.date) - parseDateScore(a.date));
 
     if (filteredData.length === 0) {
         if(emptyState) emptyState.style.display = 'block';
