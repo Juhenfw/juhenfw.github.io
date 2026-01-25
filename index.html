@@ -89,7 +89,7 @@
         </div>
         <div class="window-content">
             <div class="profile-section">
-                <img src="assets/images/profile/myprof_resize.jpg" alt="Profile" class="holo-img">
+                <img src="assets/images/profile/myprof.jpg" alt="Profile" class="holo-img">
                 <h2>Juhen Fashikha Wildan</h2>
                 <p class="role-highlight">Robotics & AI Engineer</p>
                 <p class="bio-text">
@@ -191,11 +191,22 @@
                     </div>
                 </div>
             </div>
-            <form class="holo-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea rows="4" placeholder="Message" required></textarea>
+            <form id="contactForm" action="https://formspree.io/f/maqezzpo" method="POST">
+    
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                </div>
+
                 <button type="submit" class="btn-send">INITIATE SEND</button>
+
             </form>
         </div>
     </div>
