@@ -451,3 +451,41 @@ window.addEventListener('click', (e) => {
         closePanel();
     }
 });
+
+// Ambil elemen form berdasarkan ID
+const form = document.getElementById("contactForm");
+
+async function handleSubmit(event) {
+    event.preventDefault(); // Mencegah reload halaman
+    
+    const status = document.getElementById("my-form-status");
+    const data = new FormData(event.target);
+
+    // Kirim data ke Formspree tanpa pindah halaman
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            // SUKSES: Tampilkan pesan ala terminal
+            alert("SUCCESS: DATA PACKET TRANSMITTED TO SERVER.");
+            form.reset(); // Kosongkan form
+        } else {
+            // GAGAL
+            response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                    alert("ERROR: TRANSMISSION BLOCKED. " + data["errors"].map(error => error["message"]).join(", "));
+                } else {
+                    alert("ERROR: SYSTEM FAILURE. TRY AGAIN.");
+                }
+            })
+        }
+    }).catch(error => {
+        alert("CRITICAL ERROR: CONNECTION LOST.");
+    });
+}
+
+form.addEventListener("submit", handleSubmit);
