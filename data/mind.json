@@ -160,6 +160,14 @@
       "description": "Station-Based Robot Tracking is a system designed to detect and track the movement of Pudu robots across various stations using YOLO for object detection in video. Each robot movement, either entry or exit, is logged and stored in a MySQL database for further monitoring and analysis.",
       "link": "https://github.com/Juhenfw/Station-Based-Robot-Tracking.git"
     },
+    {
+      "id": "proj-counter",
+      "type": "project",
+      "title": "Count your pens automatically",
+      "date": "July 2024",
+      "description": "A simple website for automatically counting pens. Just take a photo and the number will be counted immediately.",
+      "link": "https://github.com/Juhenfw/CountingObject.github.io.git"
+    },
 
 
     {
