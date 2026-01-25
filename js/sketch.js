@@ -85,9 +85,10 @@ class Particle {
                 // Semakin jauh semakin transparan garisnya
                 let alpha = map(d, 0, 120, 100, 0); 
                 stroke(100, 200, 255, alpha);
-                strokeWeight(0.5);
+                strokeWeight(1.5);
                 line(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
             }
         });
     }
+
 }
