@@ -67,6 +67,15 @@
       "date": "2023-11-01",
       "priority": 5
     },
+    {
+      "id": "res-pkm1",
+      "type": "research",
+      "title": "Modern Agriculture Concept",
+      "content": "My team and I are honored to have successfully secured funding through the prestigious Program Kreativitas Mahasiswa (PKM), organized by the Ministry of Education, Culture, Research, and Technology of Indonesia. Our project, titled \"Modern Agriculture Concept with an IoT-Based Autonomous System,\" aims to revolutionize the agricultural sector by integrating cutting-edge technology to enhance efficiency, productivity, and sustainability.",
+      "link": "assets/files/Modern_Agriculture_Concept.pdf",
+      "date": "June 2024",
+      "priority": 5
+    },
 
 
     {
