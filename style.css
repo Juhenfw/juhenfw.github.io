@@ -644,6 +644,7 @@ body {
         display: grid; 
         grid-template-columns: 1fr 1fr; 
         gap: 30px; 
+        box-sizing: border-box; /* Safety */
     }
 
     .holo-form input, 
@@ -872,4 +873,57 @@ body {
     50% { 
         margin-top: -12px; /* Naik 12px ke atas */
     }
+}
+
+/* 1. Reset Box Model agar ukuran konsisten */
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    box-sizing: border-box; /* PENTING: Agar padding tidak membuat kotak melebar keluar */
+    
+    /* 2. Spacing yang lebih enak dilihat */
+    padding: 14px 18px; 
+    margin-bottom: 15px;
+    
+    /* 3. Warna Background & Border Halus */
+    background: rgba(10, 15, 25, 0.6); /* Sedikit lebih gelap agar clean */
+    border: 1px solid rgba(0, 255, 200, 0.2); 
+    border-radius: 8px;
+    
+    /* 4. Tipografi */
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; /* Ukuran font sedikit diperbesar agar terbaca */
+    letter-spacing: 0.5px;
+    
+    /* 5. Hilangkan gangguan visual */
+    outline: none;
+    resize: none; /* MENGHILANGKAN SEGITIGA DI POJOK TEXTAREA */
+    transition: all 0.3s ease;
+}
+
+/* Efek Fokus: Saat diklik jadi menyala */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #00ffc8;
+    background: rgba(0, 255, 200, 0.05);
+    box-shadow: 0 0 15px rgba(0, 255, 200, 0.15); /* Glow lebih kuat dikit */
+}
+
+/* Placeholder (Teks petunjuk "Name", "Email") */
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3); /* Lebih redup agar elegan */
+    font-size: 0.9rem;
+}
+
+/* --- FIX AUTOFILL BROWSER (PENTING!) --- */
+/* Mencegah Chrome/Edge mengubah background jadi putih/kuning saat autofill */
+#contactForm input:-webkit-autofill,
+#contactForm input:-webkit-autofill:hover, 
+#contactForm input:-webkit-autofill:focus, 
+#contactForm textarea:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #0b1016 inset; /* Hack background gelap */
+    transition: background-color 5000s ease-in-out 0s;
 }
