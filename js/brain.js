@@ -166,18 +166,23 @@ function renderNodes(nodes) {
     contentNodes.sort(() => Math.random() - 0.5);
 
     if (isMobile) {
-        // === LOGIKA MOBILE (FIX 4 NODE) ===
-        // Ambil 3 konten teratas + 1 Archive
-        let selectedContent = contentNodes.slice(0, 3);
+        // === LOGIKA MOBILE (DINAMIS 4 SLOT) ===
+        // Jika archiveNode ADA, kita sisakan 1 slot untuknya (jadi konten cuma 3)
+        // Jika archiveNode TIDAK ADA, kita pakai semua 4 slot untuk konten
+        const limit = archiveNode ? 3 : 4; 
+        
+        let selectedContent = contentNodes.slice(0, limit);
         
         nodesToRender = [...selectedContent];
         if (archiveNode) nodesToRender.push(archiveNode);
         
     } else {
         // === LOGIKA DESKTOP (LIMIT MAX 10) ===
-        // Biar orbit tidak sesak. Ambil 9 konten + 1 Archive.
+        // Sama juga untuk desktop, biar tidak ada gap kalau archive hilang
         const MAX_DESKTOP = 10;
-        let selectedContent = contentNodes.slice(0, MAX_DESKTOP - 1);
+        const limit = archiveNode ? (MAX_DESKTOP - 1) : MAX_DESKTOP;
+        
+        let selectedContent = contentNodes.slice(0, limit);
         
         nodesToRender = [...selectedContent];
         if (archiveNode) nodesToRender.push(archiveNode);
