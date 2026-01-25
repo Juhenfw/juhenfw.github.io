@@ -135,6 +135,22 @@
       "description": "Dengan memanfaatkan algoritma Ant Colony Optimization, skrip ini menghitung rute optimal yang menghubungkan kantor-kantor kecamatan di seluruh Surabaya. Hasilnya adalah visualisasi jalur yang dapat diikuti untuk mengunjungi semua kantor kecamatan dengan jarak tempuh minimum.",
       "link": "https://github.com/Juhenfw/AI-for-Optimization-using-Ant-Colony.git"
     },
+    {
+      "id": "proj-tensorflow",
+      "type": "project",
+      "title": "Install TensorFlow on Windows 11",
+      "date": "July 2024",
+      "description": "A guide to install TensorFlow on Windows 10 or later environments. This repository also explains how to convert PyTorch models (.pt) to TensorFlow models (.onnx & .engine).",
+      "link": "https://github.com/Juhenfw/Install-TensorFlow-Windows11.git"
+    },
+    {
+      "id": "proj-pudu",
+      "type": "project",
+      "title": "Station-Based Robot Tracking",
+      "date": "July 2024",
+      "description": "Station-Based Robot Tracking is a system designed to detect and track the movement of Pudu robots across various stations using YOLO for object detection in video. Each robot movement, either entry or exit, is logged and stored in a MySQL database for further monitoring and analysis.",
+      "link": "https://github.com/Juhenfw/Station-Based-Robot-Tracking.git"
+    },
 
 
     {
