@@ -9,6 +9,7 @@
 
 // Global Variable: Menyimpan seluruh data agar bisa difilter tanpa reload
 let globalRepository = []; 
+let currentActiveCategory = 'all'; // Untuk mencatat kategori asli yang dipilih
 
 // =============================================================================
 // 1. SYSTEM INITIALIZATION (LOADER)
@@ -42,6 +43,8 @@ async function loadMind() {
 // 2. MAIN NAVIGATION SYSTEM
 // =============================================================================
 function filterMind(category) {
+    currentActiveCategory = category;
+
     // 1. Update Tampilan Tombol Menu (Active State)
     // Cari semua tombol filter dan hapus class 'active'
     const buttons = document.querySelectorAll('.filter-btn');
@@ -111,14 +114,12 @@ function renderProfile(profile) {
 
 // FUNGSI ANIMASI REFRESH
 function triggerSystemRefresh(element) {
-    // 1. Efek Visual pada Teks
     const textSpan = element.querySelector('.status-text');
     const originalText = textSpan.innerText;
     
     textSpan.innerText = "PROCESSING...";
     textSpan.style.color = "#00ffc8";
     
-    // 2. Efek Glitch pada Node
     const nodes = document.querySelectorAll('.node');
     nodes.forEach(n => {
         n.style.transition = 'all 0.3s ease';
@@ -126,14 +127,10 @@ function triggerSystemRefresh(element) {
         n.style.opacity = '0';
     });
 
-    // 3. Render Ulang
     setTimeout(() => {
-        const activeBtn = document.querySelector('.filter-btn.active');
-        const currentCategory = activeBtn ? activeBtn.innerText.toLowerCase() : 'all';
+        // Langsung panggil kategori yang tersimpan
+        filterMind(currentActiveCategory); 
         
-        filterMind(currentCategory); // Ini akan mengacak konten project
-        
-        // Kembalikan Teks Status
         textSpan.innerText = originalText;
         textSpan.style.color = "";
     }, 500); 
