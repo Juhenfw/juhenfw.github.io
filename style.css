@@ -933,3 +933,30 @@ body {
     -webkit-box-shadow: 0 0 0px 1000px #0b1016 inset; /* Hack background gelap */
     transition: background-color 5000s ease-in-out 0s;
 }
+
+/* =========================================
+   GLOBAL CYBERPUNK SCROLLBAR
+   ========================================= */
+/* Mengubah ukuran dan bentuk scrollbar utama */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; /* untuk scrollbar horizontal jika ada */
+}
+
+/* Bagian lintasan (track) scrollbar */
+::-webkit-scrollbar-track {
+    background: var(--bg-color); 
+    border-left: 1px solid rgba(0, 255, 200, 0.1); /* Garis batas tipis */
+}
+
+/* Bagian pegangan (thumb) yang bisa ditarik */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 200, 0.3); /* Cyan transparan */
+    border-radius: 10px;
+}
+
+/* Efek saat pegangan scrollbar disorot mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 200, 0.8); /* Cyan menyala */
+    box-shadow: 0 0 10px rgba(0, 255, 200, 0.5);
+}
