@@ -2,29 +2,25 @@
    1. GLOBAL VARIABLES & TYPOGRAPHY
    ========================================= */
 :root {
-    /* --- COLOR SYSTEM (MODERN NEO-DARK) --- */
-    --bg-base: #090B10; /* Deep blue-tinted black, lebih elegan dari murni hitam */
-    --bg-surface: rgba(17, 24, 39, 0.65); /* Warna dasar kartu/glass */
-    
-    /* Teks: Hindari putih murni (#FFF) agar tidak menyilaukan */
-    --text-main: #F1F5F9; 
-    --text-muted: #94A3B8;
-    
-    /* Aksen Cyan diubah sedikit ke arah Electric Blue agar lebih modern */
-    --accent-primary: #00E1D9; 
-    --accent-glow: rgba(0, 225, 217, 0.15);
-    
-    /* Kategori Nodes (Lebih soft, pastel neon) */
-    --color-research: #3B82F6; /* Royal Blue */
-    --color-experience: #10B981; /* Emerald */
-    --color-skill: #8B5CF6; /* Violet */
-    --color-project: #F59E0B; /* Amber */
-    --color-blog: #EC4899; /* Pink */
+    /* PALET WARNA BARU: Lebih Modern & Premium */
+    --color-research: #00D2FF;     /* Blue Electric */
+    --color-experience: #00FF87;   /* Cyber Mint */
+    --color-skill: #FF2E93;        /* Neon Fuchsia */
+    --color-project: #FFD200;      /* Amber Gold */
+    --color-blog: #D500F9;         /* Royal Violet */
+    --color-accent: #00FFCC;       /* Premium Mint Cyan */
+    --bg-color: #080B10;           /* Obsidian Deep Space */
 
-    /* --- FLUID TYPOGRAPHY --- */
+    /* FLUID TYPOGRAPHY (TETAP SAMA) */
+    /* Base: HP 14px, Desktop max 18px */
     --fs-base: clamp(14px, 1.2vw, 18px);
+    
+    /* H1 (Nama): HP 2rem, Desktop 3.5rem (Dikecilkan dikit biar aman di laptop) */
     --fs-h1: clamp(2rem, 3.5vw, 3.5rem);
+    
+    /* Role Text */
     --fs-role: clamp(0.9rem, 1.5vw, 1.2rem);
+    
     --spacing-md: clamp(1rem, 2vw, 2rem);
 }
 
@@ -33,11 +29,11 @@ html {
 }
 
 body {
-    /* Gradient radial memberikan efek "Cahaya dari tengah" yang subtle */
-    background: radial-gradient(circle at center, #111827 0%, var(--bg-base) 100%);
-    color: var(--text-main);
+    /* Ditambahkan efek studio lighting radial */
+    background: radial-gradient(circle at center, #0F172A 0%, var(--bg-color) 100%);
+    color: #F1F5F9; /* Off-white agar mata tidak silau */
     font-family: 'Space Grotesk', sans-serif;
-    overflow: hidden; 
+    overflow: hidden; /* No scrollbars */
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -45,14 +41,27 @@ body {
 }
 
 /* =========================================
-   2. INTERACTION LAYER 
+   2. INTERACTION LAYER (CRITICAL FIX)
    ========================================= */
+/* Agar mouse bisa menembus layer UI dan menggerakkan garis background */
 #ui-layer {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 10; pointer-events: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none; /* TEMBUS PANDANG MOUSE */
 }
-.node, #filter-dock, .identity-content, .social-orbit a, .virtual-window, .panel-overlay {
-    pointer-events: auto !important; 
+
+/* Tapi elemen penting harus tetap bisa diklik */
+.node, 
+#filter-dock, 
+.identity-content, 
+.social-orbit a,
+.virtual-window,
+.panel-overlay {
+    pointer-events: auto !important; /* BISA DIKLIK */
     cursor: pointer;
 }
 
@@ -60,85 +69,95 @@ body {
    3. CORE IDENTITY (TENGAH)
    ========================================= */
 .core-identity {
-    position: absolute; top: 50%; left: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center; z-index: 15; width: 90%; max-width: 500px;
-    pointer-events: none;
+    text-align: center;
+    z-index: 15; /* Di atas UI Layer biasa */
+    width: 90%; 
+    max-width: 500px;
+    pointer-events: none; /* Container tembus */
 }
 
+/* Kotak Nama (Agar teks terbaca jelas walau ada node lewat) */
 .identity-content {
-    background: var(--bg-surface);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 35px 30px;
-    border-radius: 24px;
-    /* Efek pantulan cahaya di sisi atas border */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0,0,0, 0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(15, 23, 42, 0.7); /* Slate Glassmorphism */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Sisi border lebih halus */
+    box-shadow: 0 20px 50px rgba(0,0,0, 0.6);
+    transition: transform 0.3s ease;
 }
 
 .core-identity:hover .identity-content {
-    transform: translateY(-5px);
-    border-color: rgba(0, 225, 217, 0.3);
-    box-shadow: 0 25px 50px rgba(0, 225, 217, 0.08);
+    transform: scale(1.02);
+    border-color: rgba(0, 255, 204, 0.3); /* Match neon accent */
 }
 
 .core-identity h1 {
     font-size: var(--fs-h1);
-    line-height: 1.1; margin: 0 0 12px 0; letter-spacing: -1px;
-    /* Gradient Teks yang lebih premium */
-    background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+    line-height: 1.1;
+    margin: 0 0 10px 0;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%); /* Silver Metallic Gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .role-text {
     font-size: var(--fs-role);
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    color: var(--accent-primary);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-size: 0.85em;
+    font-family: 'Courier New', monospace;
+    color: #94A3B8; /* Slate gray */
+    letter-spacing: 1px;
 }
 
-.social-orbit { margin-top: 25px; }
-.social-orbit a {
-    color: var(--text-muted);
-    text-decoration: none; margin: 0 12px; font-weight: 500;
-    transition: 0.3s ease;
+.social-orbit {
+    margin-top: 20px;
 }
+
+.social-orbit a {
+    color: #94A3B8;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
 .social-orbit a:hover {
-    color: var(--text-main);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
 }
 
 /* =========================================
    4. NODES (KARTU MELAYANG)
    ========================================= */
 .node {
-    position: absolute; width: 280px; max-width: 220px; padding: 22px;
-    background: var(--bg-surface); 
-    backdrop-filter: blur(16px); 
-    -webkit-backdrop-filter: blur(16px);
+    position: absolute;
+    width: 280px;
+    max-width: 220px; /* Batasi lebar di Desktop agar orbit aman */
+    padding: 20px;
+    
+    /* Glassmorphism */
+    background: rgba(15, 23, 42, 0.6); /* Slate Glass */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
     
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-top: 1px solid rgba(255, 255, 255, 0.12); /* Glass reflection */
-    border-radius: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12); /* Pantulan cahaya kaca atas */
+    border-radius: 12px;
     
-    box-shadow: 0 10px 30px rgba(0,0,0, 0.2);
+    /* Animasi */
     animation: float 6s ease-in-out infinite;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    overflow: hidden; z-index: 20;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    z-index: 20;
 }
 
-.node:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(0,0,0, 0.4);
-    z-index: 25;
-}
-
+/* Variasi Animasi */
 .node:nth-child(odd) { animation-duration: 7s; animation-delay: 1s; }
 .node:nth-child(even) { animation-duration: 5s; animation-delay: 0.5s; }
 
@@ -147,19 +166,45 @@ body {
     50% { margin-top: -15px; }
 }
 
-.node h3 { margin: 8px 0; font-size: 1.05rem; font-weight: 600; color: var(--text-main); }
+.node h3 {
+    margin: 8px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #F1F5F9;
+}
+
 .node p {
-    font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin: 0;
+    font-size: 0.8rem;
+    color: #94A3B8;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
 }
 
-.node-date { font-size: 0.7rem; font-family: monospace; color: var(--text-muted); opacity: 0.7; margin-bottom: 8px; display: block; }
+.node-date {
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #475569;
+    display: block;
+    margin-bottom: 5px;
+}
+
 .click-hint { 
-    display: block !important; font-size: 0.65rem; margin-top: 12px;
-    color: var(--accent-primary); font-family: monospace; text-transform: uppercase; letter-spacing: 1px;
+    display: block !important; /* PAKSA MUNCUL */
+    font-size: 0.6rem;
+    margin-top: 6px;
+    opacity: 0.8;
+    color: var(--color-accent); /* Menggunakan variabel aksen */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Perbaikan Warna Border Node (Lebih elegan) */
+/* Warna Border */
 .node-research { border-left: 3px solid var(--color-research); }
 .node-experience { border-left: 3px solid var(--color-experience); }
 .node-skill { border-left: 3px solid var(--color-skill); }
@@ -170,127 +215,721 @@ body {
    5. COMMAND DOCK (MENU BAWAH)
    ========================================= */
 #filter-dock {
-    position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 200;
-    display: flex; align-items: center; gap: 6px;
-    background: rgba(15, 23, 42, 0.7);
-    padding: 8px 8px; border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.85); /* Slate Dark */
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 255, 204, 0.15); /* Halus */
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.dock-separator { width: 1px; height: 16px; background: rgba(255, 255, 255, 0.1); margin: 0 4px; }
+.dock-separator {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 5px;
+}
 
 .filter-btn {
-    background: transparent; border: none; color: var(--text-muted);
-    font-family: inherit; font-size: 0.8rem; font-weight: 500;
-    padding: 8px 16px; border-radius: 30px; transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    color: #64748B;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.filter-btn:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.05); }
+.filter-btn:hover {
+    color: #F1F5F9;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
 
 .filter-btn.active {
-    color: var(--bg-base); background: var(--text-main);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-    font-weight: 600;
+    color: #080B10; /* Kontras dengan aksen terang */
+    background: var(--color-accent);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
 }
 
 /* =========================================
    6. OVERLAYS (BOOT, PANEL, WINDOW)
    ========================================= */
-.panel-overlay, #boot-screen {
+/* Boot Screen */
+#boot-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--bg-color);
+    z-index: 9999;
+    display: flex; justify-content: center; align-items: center;
+    font-family: 'Courier New', monospace;
+}
+.terminal-loader { width: 300px; color: var(--color-accent); }
+.terminal-header { font-size: 0.8rem; margin-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 5px; display: flex; align-items: center; }
+.status-dot { width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%; display: inline-block; margin-right: 8px; animation: blink 0.5s infinite; }
+#terminal-text { font-size: 0.75rem; height: 100px; overflow: hidden; opacity: 0.8; line-height: 1.5; }
+.progress-line { height: 2px; background: rgba(255, 255, 255, 0.1); margin-top: 10px; position: relative; overflow: hidden; }
+.progress-line::after { content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--color-accent); animation: loadProgress 2.5s ease-in-out forwards; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes loadProgress { 0% { width: 0%; } 100% { width: 100%; } }
+
+/* Holographic Panel */
+.panel-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(4, 6, 10, 0.85); backdrop-filter: blur(8px);
+    background: rgba(4, 6, 11, 0.85); backdrop-filter: blur(5px);
     z-index: 999; display: none; justify-content: center; align-items: center;
+    opacity: 0; transition: opacity 0.3s ease;
 }
 .panel-overlay.active { display: flex; opacity: 1; }
-
 .panel-content {
-    background: var(--bg-surface); width: 90%; max-width: 600px; padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    background: rgba(15, 23, 42, 0.95); width: 90%; max-width: 600px; padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.panel-overlay.active .panel-content { transform: scale(1); }
+.close-btn { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #475569; font-size: 2rem; cursor: pointer; transition: color 0.3s; }
+.close-btn:hover { color: #F1F5F9; }
+.panel-badge { background: rgba(255, 255, 255, 0.08); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: bold; color: var(--color-research); text-transform: uppercase; }
+.panel-year { font-family: monospace; color: #475569; margin-left: 10px; }
+#panel-title { font-size: 2rem; margin: 20px 0; line-height: 1.2; background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+#panel-desc { font-size: 1rem; color: #94A3B8; line-height: 1.6; margin-bottom: 30px; }
+.action-btn { display: inline-block; padding: 12px 25px; background: #F1F5F9; color: #080B10; text-decoration: none; font-weight: bold; border-radius: 30px; transition: all 0.3s; }
+.action-btn:hover { background: var(--color-accent); box-shadow: 0 0 20px var(--color-accent); }
+
+/* Virtual Windows (Profile/Contact) */
+/* --- VIRTUAL WINDOW SYSTEM --- */
+.virtual-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    
+    width: 85%;
+    max-width: 900px;
+    
+    /* REVISI: Gunakan max-height agar adaptive */
+    display: none; 
+    flex-direction: column;
+    
+    height: auto;        /* Biarkan tinggi menyesuaikan isi... */
+    max-height: 85vh;    /* ...tapi STOP jika sudah mencapai 85% layar */
+    
+    background: rgba(11, 15, 26, 0.96);
+    border: 1px solid rgba(0, 255, 204, 0.2);
+    box-shadow: 0 0 50px rgba(0, 255, 204, 0.05);
+    z-index: 2000;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #F1F5F9;
 }
 
-.virtual-window {
-    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.95);
-    width: 85%; max-width: 900px; display: none; flex-direction: column;
-    height: auto; max-height: 85vh;
-    background: var(--bg-surface);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); z-index: 2000; border-radius: 16px;
-    opacity: 0; transition: all 0.3s ease; backdrop-filter: blur(20px);
+.virtual-window.active {
+    display: flex; /* Tetap Flexbox untuk layout Header-Content */
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
-.virtual-window.active { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
 .window-header {
-    background: rgba(0, 0, 0, 0.2); padding: 12px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-family: monospace; color: var(--text-muted); font-size: 0.85rem;
+    flex-shrink: 0; /* Header jangan gepeng */
+    background: rgba(0, 255, 204, 0.06);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.15);
+    font-family: monospace;
+    letter-spacing: 2px;
+    color: var(--color-accent);
 }
 
-.window-content { padding: 40px; overflow-y: auto; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+.window-content {
+    box-sizing: border-box;
+    /* Content mengisi ruang, tapi akan scroll jika mentok max-height */
+    overflow-y: auto; 
+    padding: 30px;
+    padding-right: 35px;
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
 
 /* Profile Styles */
-.profile-section { display: flex; flex-direction: column; align-items: center; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.05); padding-right: 30px; }
-.holo-img { width: 150px; height: 150px; border-radius: 50%; padding: 4px; border: 2px solid rgba(255,255,255,0.1); background: linear-gradient(135deg, var(--bg-base), var(--bg-surface)); object-fit: cover; margin-bottom: 20px; }
-.profile-section h3 { font-size: 1.8rem; color: var(--text-main); margin: 0 0 5px 0; }
-.role-highlight { color: var(--accent-primary); font-family: monospace; font-size: 0.9rem; margin-bottom: 20px; }
-.bio-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 30px; }
-
-.btn-download {
-    padding: 12px 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    color: var(--text-main); border-radius: 8px; text-decoration: none; font-size: 0.85rem;
-    transition: all 0.3s ease; font-weight: 500; letter-spacing: 0.5px;
+.profile-section {
+    /* Flexbox untuk meratakan tengah secara vertikal & horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    
+    /* Garis pemisah di kanan agar rapi */
+    padding-right: 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%; 
 }
-.btn-download:hover { background: var(--text-main); color: var(--bg-base); }
 
-/* Form Styles */
-.holo-form input, .holo-form textarea {
-    width: 100%; box-sizing: border-box !important;
-    background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 16px; color: var(--text-main); margin-bottom: 20px; font-family: inherit; font-size: 0.95rem;
-    border-radius: 12px; transition: all 0.3s;
+/* Gambar Profil */
+.holo-img { 
+    width: 140px; 
+    height: 140px; 
+    border-radius: 50%; 
+    border: 3px solid var(--color-accent); 
+    object-fit: cover; 
+    margin-bottom: 20px; 
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.15); /* Efek glowing */
 }
-.holo-form input:focus, .holo-form textarea:focus { border-color: var(--accent-primary); outline: none; background: rgba(0, 0, 0, 0.4); }
+
+/* Nama (H3) di dalam profil */
+.profile-section h3 {
+    font-size: 1.6rem;
+    color: #F8FAFC;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+/* Role / Jabatan */
+.role-highlight { 
+    color: var(--color-accent); 
+    font-family: 'JetBrains Mono', monospace; 
+    margin-bottom: 20px;
+    display: inline-block;
+    background: rgba(0, 255, 204, 0.08); /* Background tipis */
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Deskripsi Bio */
+.bio-text { 
+    font-size: 0.9rem; 
+    color: #94A3B8; 
+    line-height: 1.6; 
+    margin-bottom: 25px; 
+    max-width: 90%; /* Batasi lebar agar teks enak dibaca */
+}
+
+/* Tombol Download */
+.btn-download { 
+    margin-top: auto; /* Dorong ke bawah */
+    display: inline-block; 
+    padding: 12px 30px; 
+    border: 1px solid var(--color-accent); 
+    color: var(--color-accent); 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    transition: 0.3s; 
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.btn-download:hover { 
+    background: var(--color-accent); 
+    color: #080B10;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+/* Stats Styles */
+.holo-title { font-size: 0.8rem; color: #475569; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 5px; margin-bottom: 15px; letter-spacing: 1px; }
+.skill-item { margin-bottom: 12px; } .skill-item span { font-size: 0.85rem; display: block; margin-bottom: 5px; }
+.progress-bar { height: 6px; background: #1E293B; border-radius: 3px; overflow: hidden; }
+.progress-bar .fill { height: 100%; background: var(--color-accent); box-shadow: 0 0 10px var(--color-accent); }
+.holo-timeline { border-left: 2px solid rgba(255, 255, 255, 0.05); padding-left: 20px; }
+.tl-item { margin-bottom: 20px; position: relative; }
+.tl-item::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; }
+.tl-date { font-size: 0.75rem; color: var(--color-accent); font-family: monospace; }
+.tl-item h4 { margin: 5px 0; font-size: 1rem; } .tl-item p { margin: 0; font-size: 0.85rem; color: #64748B; }
+/* Contact Styles */
+.contact-layout { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    box-sizing: border-box; /* Safety */
+}
+
+/* Pastikan style ini berlaku GLOBAL (bukan cuma di mobile) */
+.holo-form input, 
+.holo-form textarea {
+    width: 100%; /* Penuhi wadah */
+    
+    /* INI KUNCINYA: Hitung padding sebagai bagian dari lebar 100% */
+    box-sizing: border-box !important; 
+    
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 15px; /* Padding lebih lega */
+    color: #F1F5F9;
+    margin-bottom: 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.holo-form input:focus, 
+.holo-form textarea:focus {
+    border-color: var(--color-accent);
+    background: rgba(0, 255, 204, 0.03);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
 
 .btn-send {
-    width: 100%; background: var(--accent-primary); color: var(--bg-base);
-    border: none; padding: 16px; font-weight: 600; border-radius: 12px;
-    cursor: pointer; transition: all 0.3s; font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box; /* Tombol juga harus border-box */
+    background: var(--color-accent);
+    color: #080B10;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-.btn-send:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); filter: brightness(1.1); }
 
-/* System Status Button */
-.system-status {
-    margin-top: 25px; padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 30px; font-family: monospace; font-size: 0.75rem;
-    color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;
+.btn-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.35);
 }
-.system-status:hover { background: rgba(255, 255, 255, 0.08); color: var(--text-main); }
-.status-dot { width: 8px; height: 8px; background-color: var(--accent-primary); border-radius: 50%; box-shadow: 0 0 10px var(--accent-primary); animation: pulseDot 2s infinite; }
 
 /* =========================================
-   7. UNIFIED MOBILE RESPONSIVE
+   7. UNIFIED MOBILE RESPONSIVE (MAX 768px)
    ========================================= */
 @media (max-width: 768px) {
-    .core-identity { top: 40% !important; transform: translate(-50%, -40%) !important; }
-    .identity-content { padding: 25px 20px; border-radius: 20px; }
-    .bio-text { display: none; }
     
-    .node {
-        width: 45vw; max-width: 170px; padding: 15px; border-radius: 14px;
-        background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px);
+    /* --- A. CORE IDENTITY ADJUSTMENT --- */
+    .core-identity {
+        top: 42% !important;
+        transform: translate(-50%, -42%) !important;
+        width: 90%;
+        max-width: 300px;
     }
-    .node h3 { font-size: 0.9rem; -webkit-line-clamp: 2; }
-    .node p, .click-hint { display: none; }
     
-    #filter-dock { width: 92%; padding: 10px; border-radius: 20px; gap: 10px; overflow-x: auto; bottom: 20px; }
-    .filter-btn { padding: 10px 16px; border-radius: 12px; }
+    .core-identity h1 {
+        font-size: 1.5rem; /* Ukuran font aman */
+        margin-bottom: 5px;
+    }
+
+    .identity-content {
+        padding: 15px;
+        background: rgba(15, 23, 42, 0.75);
+    }
+
+    .bio-text { display: none; } /* Hide bio di home HP */
+    .role-text { font-size: 0.8rem; }
+
+    /* --- B. COMPACT NODES (44vw) --- */
+    .node {
+        width: 44vw; 
+        max-width: 160px;
+        min-height: 60px;
+        padding: 10px;
+        border-radius: 10px;
+        
+        /* Style Card Mobile */
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: 1px solid rgba(255,255,255,0.1);
+        animation: floatMobile 5s ease-in-out infinite; 
+    }
     
-    .window-content { grid-template-columns: 1fr; gap: 20px; padding: 25px 20px 80px 20px; }
-    .profile-section { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 30px; }
+    /* Biar geraknya selang-seling (Genap & Ganjil beda waktu) */
+    .node:nth-child(odd) { animation-duration: 5s; }
+    .node:nth-child(even) { animation-duration: 6s; animation-delay: 1s; }
+
+    .node h3 {
+        font-size: 0.85rem;
+        margin: 4px 0;
+        /* Batasi 2 baris */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    .node p, .click-hint { 
+        display: none; /* Sembunyikan detail text di card HP */
+    }
+
+    .node-date {
+        font-size: 0.6rem;
+        opacity: 0.8;
+    }
+
+    /* --- C. DOCK MENU (SMART SCROLL INDICATOR) --- */
+    #filter-dock {
+        bottom: 20px; 
+        width: 90%;   
+        max-width: 100%;
+        
+        display: flex;
+        justify-content: flex-start; 
+        flex-wrap: nowrap; 
+        gap: 8px; 
+        
+        overflow-x: auto; 
+        padding: 10px 15px;
+        
+        border-radius: 50px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        
+        /* Shadow Luar Default (Selalu ada) */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        
+        /* Transisi halus saat cahaya muncul/hilang */
+        transition: box-shadow 0.3s ease;
+        
+        -ms-overflow-style: none; scrollbar-width: none;
+    }
     
-    .contact-layout { grid-template-columns: 1fr; gap: 0; }
+    #filter-dock::-webkit-scrollbar { display: none; }
+
+    .filter-btn {
+        flex-shrink: 0;
+        font-size: 0.75rem;
+        padding: 8px 16px;
+        white-space: nowrap;
+    }
+
+    /* --- LOGIKA CAHAYA DINAMIS (Diatur oleh JS) --- */
+    
+    /* 1. Kalau bisa geser KANAN saja (Awal) */
+    #filter-dock.scroll-mask-right {
+        box-shadow: inset -25px 0 20px -10px rgba(0, 255, 204, 0.4), /* Cahaya Kanan */
+                    0 10px 30px rgba(0,0,0,0.5); /* Shadow Luar */
+    }
+
+    /* 2. Kalau bisa geser KIRI saja (Mentok Kanan) */
+    #filter-dock.scroll-mask-left {
+        box-shadow: inset 25px 0 20px -10px rgba(0, 255, 204, 0.4), /* Cahaya Kiri */
+                    0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* 3. Kalau bisa geser DUA ARAH (Tengah-tengah) */
+    #filter-dock.scroll-mask-both {
+        box-shadow: inset 25px 0 20px -10px rgba(0, 255, 204, 0.4),  /* Cahaya Kiri */
+                    inset -25px 0 20px -10px rgba(0, 255, 204, 0.4), /* Cahaya Kanan */
+                    0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* --- D. WINDOW & PANEL --- */
+    .virtual-window {
+        width: 95%;
+        padding: 0;
+    }
+
+    .window-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        
+        /* Tambahkan padding bawah ekstra biar scroll lega */
+        padding: 20px 25px 60px 25px;
+    }
+    /* --- Contact Form Styling --- */
+    .contact-layout { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px; 
+        box-sizing: border-box; /* Safety */
+    }
+
+    .holo-form input, 
+    .holo-form textarea {
+        width: 100%;
+        
+        box-sizing: border-box; /* Agar padding tidak melebarkan input keluar batas */
+        
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 12px;
+        color: #F1F5F9;
+        margin-bottom: 15px;
+        font-family: inherit;
+        border-radius: 5px; /* Tambahan biar sedikit manis */
+    }
+
+    .holo-form input:focus, 
+    .holo-form textarea:focus {
+        border-color: var(--color-accent);
+        outline: none;
+        background: rgba(0, 255, 204, 0.03); /* Efek fokus dikit */
+    }
+    /* Update Mobile Profile */
+    .holo-img { 
+        width: 110px; 
+        height: 110px; 
+        margin-bottom: 15px;
+    }
+
+    .profile-section { 
+        /* Matikan settingan desktop */
+        border-right: none; 
+        padding-right: 0;
+        height: auto;
+        
+        /* Ganti jadi garis bawah untuk pemisah di HP */
+        border-bottom: 1px solid rgba(255,255,255,0.05); 
+        padding-bottom: 30px; 
+        margin-bottom: 30px;
+    }
+    .panel-content { padding: 25px; width: 95%; }
+    #panel-title { font-size: 1.5rem; }
+
+    .social-orbit {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Memberikan jarak antar ikon */
+    }
+
+    .social-orbit a {
+        font-size: 1.4rem; /* Ukuran ikon lebih besar dari teks sebelumnya */
+        color: rgba(255, 255, 255, 0.6);
+        transition: all 0.3s ease;
+    }
+
+    .social-orbit a:hover {
+        color: var(--color-accent);
+        transform: translateY(-3px); /* Efek melayang saat hover */
+        text-shadow: 0 0 10px var(--color-accent);
+    }
+
+    /* --- E. ARCHIVE TABLE MOBILE FIX (RESPONSIVE) --- */
+    
+    /* 1. Kecilkan Font Keseluruhan Tabel */
+    .archive-table {
+        font-size: 0.75rem !important; /* Sekitar 12px, cukup terbaca di HP */
+    }
+
+    /* 2. Rapatkan Padding (Jarak antar sel) */
+    .archive-table th, 
+    .archive-table td {
+        padding: 10px 5px !important; /* Atas-Bawah 10px, Kiri-Kanan 5px */
+    }
+
+    /* 3. Atur Perilaku Kolom */
+    
+    /* Kolom Tahun (Kecilkan & Posisikan di atas) */
+    .archive-table td:nth-child(1) {
+        font-size: 0.7rem !important;
+        white-space: nowrap; /* Jangan turun baris */
+        color: #475569;
+    }
+
+    /* Kolom Judul (Paling Penting - Biarkan Wrap) */
+    .archive-table td:nth-child(2) {
+        white-space: normal !important; /* Izinkan teks panjang turun ke bawah */
+        word-wrap: break-word;
+        max-width: 120px; /* Batasi lebar agar tidak mendorong kolom lain */
+    }
+
+    /* Kolom Badge/Kategori (Kecilkan Badge) */
+    .tag-badge {
+        font-size: 0.6rem !important; /* Badge mungil */
+        padding: 2px 4px !important;
+        display: inline-block;
+        margin-top: 2px;
+    }
+
+    /* Kolom Link/Action (Kecilkan Tombol) */
+    .archive-link {
+        font-size: 0.65rem !important;
+        padding: 3px 6px !important;
+        white-space: nowrap;
+    }
+
+    /* Responsif Mobile */
+    @media (max-width: 768px) {
+        .social-orbit {
+            gap: 12px;
+            flex-wrap: wrap; /* Agar ikon turun ke bawah jika layar terlalu sempit */
+        }
+        .social-orbit a {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/* --- STYLE ARSIP & TAB --- */
+.node-archive {
+    border: 1px dashed var(--color-blog) !important;
+    box-shadow: 0 0 15px rgba(213, 0, 249, 0.2) !important;
+}
+
+.window-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(0,0,0,0.2);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    color: #475569;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.tab-btn:hover { color: #F1F5F9; background: rgba(255,255,255,0.02); }
+
+.tab-btn.active {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    background: rgba(0, 255, 204, 0.03);
+}
+
+.archive-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.archive-table th { text-align: left; padding: 10px; border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--color-accent); }
+.archive-table td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* Badge Warna */
+.tag-badge { padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; border: 1px solid rgba(255,255,255,0.1); }
+.tag-blog { border-color: var(--color-blog); color: var(--color-blog); }
+.tag-research { border-color: var(--color-research); color: var(--color-research); }
+.tag-project { border-color: var(--color-project); color: var(--color-project); }
+
+.archive-link { color: var(--color-accent); text-decoration: none; font-size: 0.8rem; border: 1px solid var(--color-accent); padding: 2px 8px; border-radius: 4px; }
+#empty-state { text-align: center; padding: 30px; color: #475569; font-family: monospace; }
+
+/* --- GLOBAL HELPER --- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Wajib ada agar bisa discroll horizontal di HP */
+    -webkit-overflow-scrolling: touch; /* Biar scroll licin di iPhone */
+}
+
+/* --- SYSTEM STATUS TRIGGER (DESKTOP & MOBILE) --- */
+.system-status {
+    margin-top: 20px; /* Jarak dari ikon sosmed */
+    
+    /* 1. PERBAIKAN UTAMA: Padding Sega */
+    padding: 15px 20px; 
+    
+    /* 2. Visual Button: Kasih background tipis biar kelihatan area kliknya */
+    background: rgba(255, 255, 255, 0.02); 
+    border: 1px solid rgba(255, 255, 255, 0.04); /* Border halus keliling */
+    border-radius: 8px; /* Sudut tumpul */
+    
+    /* Typography */
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.7rem;
+    color: #475569;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    /* Layout & Interaction */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    transition: all 0.3s ease;
+}
+
+/* Efek Hover Desktop: Lebih Terang */
+.system-status:hover {
+    background: rgba(0, 255, 204, 0.06); /* Hijau transparan */
+    border-color: rgba(0, 255, 204, 0.2);
+    color: var(--color-accent);
+    transform: translateY(-2px); /* Efek tombol ditekan/naik */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Titik Hijau */
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--color-accent);
+    animation: pulseDot 2s infinite;
+}
+
+/* --- ANIMASI KHUSUS MOBILE (SAFE MODE) --- */
+/* Menggunakan margin-top agar tidak merusak posisi tengah (transform) dari JS */
+@keyframes floatMobile {
+    0%, 100% { 
+        margin-top: 0px; 
+    }
+    50% { 
+        margin-top: -12px; /* Naik 12px ke atas */
+    }
+}
+
+/* 1. Reset Box Model agar ukuran konsisten */
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    box-sizing: border-box; /* PENTING: Agar padding tidak membuat kotak melebar keluar */
+    
+    /* 2. Spacing yang lebih enak dilihat */
+    padding: 14px 18px; 
+    margin-bottom: 15px;
+    
+    /* 3. Warna Background & Border Halus */
+    background: rgba(15, 23, 42, 0.5); /* Sedikit lebih gelap agar clean */
+    border: 1px solid rgba(0, 255, 204, 0.15); 
+    border-radius: 8px;
+    
+    /* 4. Tipografi */
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; /* Ukuran font sedikit diperbesar agar terbaca */
+    letter-spacing: 0.5px;
+    
+    /* 5. Hilangkan gangguan visual */
+    outline: none;
+    resize: none; /* MENGHILANGKAN SEGITIGA DI POJOK TEXTAREA */
+    transition: all 0.3s ease;
+}
+
+/* Efek Fokus: Saat diklik jadi menyala */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: var(--color-accent);
+    background: rgba(0, 255, 204, 0.03);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.1); /* Glow lebih kuat dikit */
+}
+
+/* Placeholder (Teks petunjuk "Name", "Email") */
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25); /* Lebih redup agar elegan */
+    font-size: 0.9rem;
+}
+
+/* --- FIX AUTOFILL BROWSER (PENTING!) --- */
+/* Mencegah Chrome/Edge mengubah background jadi putih/kuning saat autofill */
+#contactForm input:-webkit-autofill,
+#contactForm input:-webkit-autofill:hover, 
+#contactForm input:-webkit-autofill:focus, 
+#contactForm textarea:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #0b1016 inset; /* Hack background gelap */
+    transition: background-color 5000s ease-in-out 0s;
 }
