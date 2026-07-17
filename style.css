@@ -441,7 +441,7 @@ body {
 
 /* Tombol Download */
 .btn-download { 
-    margin-top: auto; /* Dorong ke bawah */
+    margin-top: 10px; /* Memberikan sedikit jarak manis dari teks bio di atasnya */
     display: inline-block; 
     padding: 12px 30px; 
     border: 1px solid var(--color-accent); 
