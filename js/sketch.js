@@ -1,4 +1,4 @@
-// js/sketch.js - Neural Network Constellation
+// js/sketch.js - Upgraded Magnetic Neural Constellation
 
 let particles = [];
 let canvas;
@@ -9,86 +9,99 @@ function setup() {
     canvas.style('z-index', '-1'); 
     canvas.style('position', 'fixed'); 
     
-    // OPTIMASI: Cek lebar layar
+    // Deteksi perangkat
     let isMobile = windowWidth < 768;
-    
-    // Jika Mobile: 20 partikel saja. Desktop: Maksimal 60.
-    let particleCount = isMobile ? 20 : 50; 
+    // Tambah sedikit jumlah partikel agar jaring terlihat lebih padat
+    let particleCount = isMobile ? 30 : 70; 
 
     for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
     }
     
-    // OPTIMASI FRAME RATE:
-    // Mata manusia di web cukup nyaman dengan 30-45 FPS untuk background ambient.
-    // Tidak perlu 60 FPS penuh yang menguras baterai.
-    frameRate(30); 
+    // Kembalikan ke 60 FPS untuk fluiditas animasi kursor modern
+    frameRate(60); 
 }
 
 function draw() {
-    background(5, 5, 8); // Warna dasar gelap (sesuai style.css --bg-color)
+    background(5, 5, 8); // Warna dasar gelap
     
-    // Loop untuk mengupdate setiap titik
+    // Loop untuk mengupdate dan menggambar titik
     for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
-        particles[i].connect(particles.slice(i)); // Cek koneksi ke titik lain
+        particles[i].connect(particles.slice(i)); 
     }
+    
+    // FUNGSI BARU: Hubungkan partikel ke kursor mouse
+    connectToMouse();
 }
 
-// Fungsi agar canvas menyesuaikan diri saat browser di-resize
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
 
-// Class untuk Titik Data (Neuron)
+// Fungsi membuat jaring magnetik ke arah mouse
+function connectToMouse() {
+    let mouseVector = createVector(mouseX, mouseY);
+    for (let i = 0; i < particles.length; i++) {
+        let d = dist(particles[i].pos.x, particles[i].pos.y, mouseVector.x, mouseVector.y);
+        
+        // Jika kursor dalam radius 150px, tarik garis menyala
+        if (d < 150) {
+            let alpha = map(d, 0, 150, 150, 0); // Semakin dekat, semakin terang
+            stroke(0, 255, 200, alpha); // Warna neon cyan khas tema Anda
+            strokeWeight(1.5);
+            line(particles[i].pos.x, particles[i].pos.y, mouseVector.x, mouseVector.y);
+        }
+    }
+}
+
 class Particle {
     constructor() {
         this.pos = createVector(random(width), random(height));
-        this.vel = createVector(random(-0.5, 0.5), random(-0.5, 0.5)); // Gerakan lambat
-        this.size = 2; // Ukuran titik kecil
+        this.vel = createVector(random(-0.4, 0.4), random(-0.4, 0.4));
+        this.size = random(1.5, 3); // Variasi ukuran agar organik
     }
 
     update() {
         this.pos.add(this.vel);
 
-        // Jika kena pinggir layar, pantul balik
+        // Pantul jika kena dinding
         if (this.pos.x < 0 || this.pos.x > width) this.vel.x *= -1;
         if (this.pos.y < 0 || this.pos.y > height) this.vel.y *= -1;
 
-        // Interaksi Mouse: Jika mouse dekat, partikel "takut" atau "tertarik"
-        // Di sini kita buat efek repulsion (menghindar) halus agar teks tetap terbaca
+        // Efek menghindar halus (Parallax Dodge)
         let mouse = createVector(mouseX, mouseY);
         let distMouse = dist(this.pos.x, this.pos.y, mouse.x, mouse.y);
         
-        if (distMouse < 100) {
+        if (distMouse < 80) {
             let repulsion = p5.Vector.sub(this.pos, mouse);
             repulsion.normalize();
-            repulsion.mult(0.5); // Kekuatan dorong
-            this.pos.add(repulsion);
+            repulsion.mult(0.5); 
+            this.vel.add(repulsion);
+            this.vel.limit(2); // Kecepatan kabur maksimal
+        } else {
+            // Jika tidak ada gangguan mouse, kembali lambat
+            this.vel.limit(0.5);
         }
     }
 
     draw() {
         noStroke();
-        fill(100, 200, 255, 150); // Warna biru muda cyani (sesuai tema research)
+        fill(100, 200, 255, 180);
         ellipse(this.pos.x, this.pos.y, this.size);
     }
 
-    // Fungsi membuat garis penghubung (synapse)
     connect(others) {
         others.forEach(other => {
             let d = dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-            
-            // Jika jarak dekat (< 120px), gambar garis tipis
-            if (d < 120) {
-                // Semakin jauh semakin transparan garisnya
-                let alpha = map(d, 0, 120, 100, 0); 
+            // Koneksi antar partikel (background mesh)
+            if (d < 100) {
+                let alpha = map(d, 0, 100, 80, 0); 
                 stroke(100, 200, 255, alpha);
-                strokeWeight(1.5);
+                strokeWeight(1);
                 line(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
             }
         });
     }
-
 }
