@@ -960,3 +960,19 @@ body {
     background: rgba(0, 255, 200, 0.8); /* Cyan menyala */
     box-shadow: 0 0 10px rgba(0, 255, 200, 0.5);
 }
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY (FOCUS STATES)
+   ========================================= */
+
+/* Memberikan efek outline neon saat elemen di-highlight menggunakan keyboard (TAB) */
+a:focus-visible, 
+button:focus-visible, 
+.node:focus-visible, 
+.filter-btn:focus-visible,
+.social-icon:focus-visible {
+    outline: 2px dashed var(--primary-color) !important; /* Garis putus-putus warna cyan */
+    outline-offset: 6px; /* Memberi jarak antara garis luar dan tombol */
+    background-color: rgba(0, 255, 200, 0.05) !important; /* Sentuhan warna latar tipis */
+    border-radius: 4px;
+}
