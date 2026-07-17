@@ -20,7 +20,7 @@
       "type": "experience",
       "title": "Process Automation Engineer Intern",
       "content": "Yamaha Corporation | PT. Yamaha Musical Products Indonesia - Working on cutting-edge robotics and automation projects (mostly computer vision).",
-      "date": "February - August 2025",
+      "date": "February 2025 - August 2025",
       "priority": 9
     },
     {
@@ -47,15 +47,13 @@
       "date": "February 2024 - July 2024",
       "priority": 7
     },
-
-
     {
       "id": "res-ijra",
       "type": "research",
       "title": "Multi-microcontroller System for Mecanum Robots",
-      "content": "Published in IJRA (2025). Tittle: \"Multi-microcontroller system for Mecanum robots with gripper-shooter\". Designed multi-microcontroller system for agricultural robotics with gripper-shooter mechanisms.",
+      "content": "Published in IJRA (2025). Title: \"Multi-microcontroller system for Mecanum robots with gripper-shooter\". Designed multi-microcontroller system for agricultural robotics with gripper-shooter mechanisms.",
       "link": "http://doi.org/10.11591/ijra.v14i2.pp181-190",
-      "date": "2025-06-12",
+      "date": "June 2025",
       "priority": 8
     },
     {
@@ -64,7 +62,7 @@
       "title": "AI Used in Agriculture (Review)",
       "content": "Published in JATM (2023). Title: \"A Review: Artificial Intelligence Related to Agricultural Equipment Integrated with the Internet of Things\". Analysis of AI integration with IoT in agricultural equipment.",
       "link": "https://doi.org/10.20473/jatm.v2i2.51440",
-      "date": "2023-11-01",
+      "date": "November 2023",
       "priority": 5
     },
     {
@@ -76,8 +74,6 @@
       "date": "June 2024",
       "priority": 5
     },
-
-
     {
       "id": "skill-cv",
       "type": "skill",
@@ -106,12 +102,10 @@
       "id": "skill-research",
       "type": "skill",
       "title": "Research",
-      "content": "Specific: DIY, Reserach Paper Based.",
+      "content": "Specific: DIY, Research Paper Based.",
       "date": "Now",
       "priority": 6
     },
-
-
     {
       "id": "proj-qr",
       "type": "project",
@@ -168,54 +162,42 @@
       "description": "A simple website for automatically counting pens. Just take a photo and the number will be counted immediately.",
       "link": "https://github.com/Juhenfw/CountingObject.github.io.git"
     },
-
-
     {
       "id": "blog-ai-agriculture",
       "type": "blog",
       "title": "AI Revolution in Smart Agriculture: From Theory to Practice",
       "date": "2024",
       "description": "The Current State of Agricultural Challenges.",
-      
       "isHidden": false,
-      
       "link": "blog/article-01.html"
     },
     {
       "id": "blog-ai-future",
       "type": "blog",
       "title": "Kecerdasan Buatan di Masa Depan, Adakah Kaitannya dengan Energi Terbarukan?",
-      "date": "2 November 2023",
+      "date": "November 2023",
       "description": "Dengan adanya pemanfaatan AI dalam mengelola energi terbarukan, dapat diperkirakan bahwa permasalahan lingkungan terkait penggunaan bahan bakar fosil dapat berkurang secara signifikan. AI merupakan kunci menuju dunia yang lebih berkelanjutan.",
-      
       "isHidden": false,
-      
       "link": "https://yoursay.suara.com/kolom/2023/11/02/112649/kecerdasan-buatan-di-masa-depan-adakah-kaitannya-dengan-energi-terbarukan"
     },
     {
       "id": "blog-ai-robot",
       "type": "blog",
       "title": "Revolusi Robot dan Kecerdasan Buatan, Manusia Akan Kehilangan Peran?",
-      "date": "27 April 2023",
+      "date": "April 2023",
       "description": "Hollywood menciptakan banyak film yang berkaitan dengan robot and AI (kecerdasan buatan). Banyak dari kita mungkin mengetahui salah satu film ciptaannya yang berjudul “Terminator”. Sebagian besar alur film tersebut menceritakan sebuah sistem yang lepas kendali, mengambil alih dunia, dan bahkan sampai menghancurkan kehidupan kita. APakah hal itu benar terjadi?",
-      
       "isHidden": false,
-      
       "link": "https://yoursay.suara.com/kolom/2023/04/27/161941/revolusi-robot-dan-kecerdasan-buatan-manusia-akan-kehilangan-peran"
     },
     {
       "id": "blog-baymax",
       "type": "blog",
       "title": "Teknologi Robot Tiup Humanoid: Solusi Masa Depan dalam Perawatan Kesehatan",
-      "date": "26 April 2023",
+      "date": "April 2023",
       "description": "Apakah kalian masih ingat tentang Baymax pada film Disney yang berjudul “Big Hero 6?” Baymax merupakan jenis robot tiup seperti marshmallow yang menggemaskan. Dia senang menolong orang, memindai penyakit dan cidera, merawat orang sakit, dan mengatasi stres pada remaja.",
-      
       "isHidden": false,
-      
       "link": "https://yoursay.suara.com/kolom/2023/04/26/190000/teknologi-robot-tiup-humanoid-solusi-masa-depan-dalam-perawatan-kesehatan"
     },
-
-
     {
       "id": "sys-archive",
       "type": "archive",
