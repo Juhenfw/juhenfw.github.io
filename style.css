@@ -300,8 +300,25 @@ body {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .panel-overlay.active .panel-content { transform: scale(1); }
-.close-btn { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #475569; font-size: 2rem; cursor: pointer; transition: color 0.3s; }
-.close-btn:hover { color: #F1F5F9; }
+
+.close-btn { 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    background: none; 
+    border: none; 
+    color: #64748B; /* Dibuat sedikit lebih terang dari #475569 agar lebih terlihat */
+    font-size: 2rem; 
+    cursor: pointer; 
+    transition: all 0.3s ease; /* Menggunakan 'all' agar transisi efek mulus */
+}
+
+.close-btn:hover { 
+    color: var(--color-accent); /* Berubah menjadi Cyan */
+    transform: scale(1.1); /* Sedikit membesar saat mouse masuk */
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5); /* Efek pendar/glowing */
+}
+
 .panel-badge { background: rgba(255, 255, 255, 0.08); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: bold; color: var(--color-research); text-transform: uppercase; }
 .panel-year { font-family: monospace; color: #475569; margin-left: 10px; }
 #panel-title { font-size: 2rem; margin: 20px 0; line-height: 1.2; background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }

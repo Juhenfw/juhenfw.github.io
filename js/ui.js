@@ -66,15 +66,35 @@ export function showDetail(node) {
 
     document.getElementById('panel-date').innerText = node.date;
     document.getElementById('panel-title').innerText = node.title;
-    document.getElementById('panel-desc').innerText = node.content || node.description || "-";
 
+    // --- MODIFIKASI 1: Pemisahan Nama Perusahaan & Tugas ---
+    let rawDesc = node.content || node.description || "-";
+    
+    // Jika tipenya 'experience' dan mengandung ' - ', pisahkan teksnya
+    if (node.type === 'experience' && rawDesc.includes(' - ')) {
+        // Memecah teks hanya pada tanda hubung pertama
+        const splitIndex = rawDesc.indexOf(' - ');
+        const companyName = rawDesc.substring(0, splitIndex).trim();
+        const taskDesc = rawDesc.substring(splitIndex + 3).trim();
+        
+        // Format ulang dengan tag <strong> dan baris baru (<br/>)
+        rawDesc = `<strong style="color: #F1F5F9; font-size: 1.05rem; display: block; margin-bottom: 8px;">${companyName}</strong>${taskDesc}`;
+    }
+    
+    // Gunakan innerHTML (sebelumnya innerText) agar tag <strong> terbaca oleh browser
+    document.getElementById('panel-desc').innerHTML = rawDesc;
+
+    // --- MODIFIKASI 2: Tombol Link / CTA Otomatis ---
     const linkBtn = document.getElementById('panel-link');
     if (node.link && node.link !== '#') {
         linkBtn.style.display = 'inline-block';
         linkBtn.href = node.link;
+        // Teks CTA berubah berdasarkan tipe konten
+        linkBtn.innerText = (node.type === 'project') ? 'VIEW PROJECT ↗' : 'VISIT LINK ↗';
     } else {
         linkBtn.style.display = 'none';
     }
+    
     panel.classList.add('active');
 }
 
