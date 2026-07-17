@@ -221,7 +221,7 @@ export function renderArchiveTable(filterType) {
             if (item.type === 'blog') tag = 'tag-blog';
             
             row.innerHTML = `
-                <td style="font-family:monospace; color:#888;">${item.date}</td>
+                <td style="color:#888;">${item.date}</td>
                 <td style="font-weight:bold; color:#fff;">${item.title}</td>
                 <td><span class="tag-badge ${tag}">${item.type.toUpperCase()}</span></td>
                 <td><a href="${item.link || '#'}" target="_blank" class="archive-link">OPEN ></a></td>
