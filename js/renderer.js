@@ -61,17 +61,17 @@ export function renderProfile(profile) {
             <p class="role-text">${profile.role}</p>
             
             <div class="social-orbit">
-                <a href="${profile.social.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="${profile.social.linkedin}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="${profile.social.twitter}" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="${profile.social.instagram}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="${profile.social.scholar}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="${profile.social.orcid}" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
-                <a href="mailto:${profile.social.email}" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="${profile.social.github}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="${profile.social.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="${profile.social.twitter}" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                <a href="${profile.social.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="${profile.social.scholar}" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap" aria-hidden="true"></i></a>
+                <a href="${profile.social.orcid}" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+                <a href="${profile.social.email}" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
             </div>
 
-            <div class="system-status" onclick="triggerSystemRefresh(this)">
-                <span class="status-dot"></span>
+            <div class="system-status" role="button" tabindex="0" onclick="triggerSystemRefresh(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();triggerSystemRefresh(this);}">
+                <span class="status-dot" aria-hidden="true"></span>
                 <span class="status-text"> CLICK TO SHUFFLE </span>
             </div>
         </div>
@@ -149,6 +149,10 @@ export function renderNodes(nodes) {
         el.className = `node node-${node.type}`;
         if (node.type === 'archive') el.classList.add('node-archive');
 
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-label', `${node.type}: ${node.title}`);
+
         el.style.left = `${x}%`;
         el.style.top = `${y}%`;
         el.style.opacity = 0;
@@ -166,10 +170,22 @@ export function renderNodes(nodes) {
             <span class="click-hint">Tap detail</span>
         `;
 
-        el.addEventListener('click', (e) => {
-            e.stopPropagation();
+        const activateNode = () => {
             if (node.type === 'archive') window.openArchiveWindow();
             else window.showDetail(node);
+        };
+
+        el.addEventListener('click', (e) => {
+            e.stopPropagation();
+            activateNode();
+        });
+
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                e.stopPropagation();
+                activateNode();
+            }
         });
 
         container.appendChild(el);
@@ -224,7 +240,7 @@ export function renderArchiveTable(filterType) {
                 <td style="color:#888;">${item.date}</td>
                 <td style="font-weight:bold; color:#fff;">${item.title}</td>
                 <td><span class="tag-badge ${tag}">${item.type.toUpperCase()}</span></td>
-                <td><a href="${item.link || '#'}" target="_blank" class="archive-link">OPEN ></a></td>
+                <td><a href="${item.link || '#'}" target="_blank" rel="noopener noreferrer" class="archive-link">OPEN ></a></td>
             `;
             tbody.appendChild(row);
         });
