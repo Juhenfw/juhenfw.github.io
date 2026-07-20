@@ -28,6 +28,19 @@ html {
     font-size: var(--fs-base);
 }
 
+/* Sembunyikan visual tapi tetap terbaca oleh screen reader (untuk <label> form) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 body {
     /* Ditambahkan efek studio lighting radial */
     background: radial-gradient(circle at center, #0F172A 0%, var(--bg-color) 100%);
@@ -993,7 +1006,7 @@ button:focus-visible,
 .node:focus-visible, 
 .filter-btn:focus-visible,
 .social-icon:focus-visible {
-    outline: 2px dashed var(--primary-color) !important; /* Garis putus-putus warna cyan */
+    outline: 2px dashed var(--color-accent) !important; /* Garis putus-putus warna cyan */
     outline-offset: 6px; /* Memberi jarak antara garis luar dan tombol */
     background-color: rgba(0, 255, 200, 0.05) !important; /* Sentuhan warna latar tipis */
     border-radius: 4px;
