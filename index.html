@@ -31,7 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
-    <div id="boot-screen">
+    <div id="boot-screen" aria-hidden="true">
         <div class="terminal-loader">
             <div class="terminal-header">
                 <span class="status-dot"></span> SYSTEM INITIALIZATION
@@ -41,15 +41,15 @@
         </div>
     </div>
 
-    <div id="archive-window" class="virtual-window">
+    <div id="archive-window" class="virtual-window" role="dialog" aria-modal="true" aria-labelledby="archive-window-title">
         <div class="window-header">
-            <span>SYSTEM DATABASE</span>
-            <button class="win-close" onclick="closeArchive()">&times;</button>
+            <span id="archive-window-title">SYSTEM DATABASE</span>
+            <button class="win-close" onclick="closeArchive()" aria-label="Close database window">&times;</button>
         </div>
 
-        <div class="window-tabs">
-            <button class="tab-btn active" onclick="switchArchiveTab('project')">PROJECTS & RESEARCH</button>
-            <button class="tab-btn" onclick="switchArchiveTab('blog')">BLOGS / ARTICLES</button>
+        <div class="window-tabs" role="tablist" aria-label="Archive category">
+            <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchArchiveTab('project')">PROJECTS & RESEARCH</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="switchArchiveTab('blog')">BLOGS / ARTICLES</button>
         </div>
         
         <div class="window-content" style="display: block;">
@@ -73,7 +73,7 @@
 
     <div id="ui-layer"></div>
 
-        <div id="filter-dock">
+        <div id="filter-dock" role="navigation" aria-label="Main filters and actions">
             <button class="filter-btn" onclick="openWindow('about')" title="Profile & CV">
                 PROFILE
             </button>
@@ -100,10 +100,10 @@
             </button>
         </div>
 
-    <div id="window-about" class="virtual-window">
+    <div id="window-about" class="virtual-window" role="dialog" aria-modal="true" aria-labelledby="about-window-title">
         <div class="window-header">
-            <span>PROFILE DATA</span>
-            <button class="win-close" onclick="closeWindow('about')">×</button>
+            <span id="about-window-title">PROFILE DATA</span>
+            <button class="win-close" onclick="closeWindow('about')" aria-label="Close profile window">×</button>
         </div>
         <div class="window-content">
             <div class="profile-section">
@@ -178,10 +178,10 @@
         </div>
     </div>
 
-    <div id="window-contact" class="virtual-window">
+    <div id="window-contact" class="virtual-window" role="dialog" aria-modal="true" aria-labelledby="contact-window-title">
         <div class="window-header">
-            <span>CONTACT ME</span>
-            <button class="win-close" onclick="closeWindow('contact')">×</button>
+            <span id="contact-window-title">CONTACT ME</span>
+            <button class="win-close" onclick="closeWindow('contact')" aria-label="Close contact window">×</button>
         </div>
         <div class="window-content contact-layout">
             <div class="contact-info">
@@ -191,7 +191,7 @@
                 
                 <p style="color: #ccc; line-height: 1.6; font-size: 0.95rem; margin-bottom: 30px;">
                     I'm always excited to discuss new projects, innovative ideas, or potential collaborations. 
-                    <span style="color: #fff; font-weight: bold;">Let's explore how we can work together.<span>
+                    <span style="color: #fff; font-weight: bold;">Let's explore how we can work together.</span>
                     </p>
 
                 <div class="contact-details">
@@ -211,15 +211,18 @@
             <form id="contactForm" action="https://formspree.io/f/maqezzpo" method="POST">
     
                 <div class="input-group">
-                    <input type="text" name="name" placeholder="Name" required>
+                    <label for="contact-name" class="sr-only">Name</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Name" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="email" name="email" placeholder="Email" required>
+                    <label for="contact-email" class="sr-only">Email</label>
+                    <input type="email" id="contact-email" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="input-group">
-                    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                    <label for="contact-message" class="sr-only">Message</label>
+                    <textarea id="contact-message" name="message" placeholder="Message" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="btn-send">INITIATE SEND</button>
@@ -228,9 +231,9 @@
         </div>
     </div>
 
-    <div id="data-panel" class="panel-overlay">
+    <div id="data-panel" class="panel-overlay" role="dialog" aria-modal="true" aria-labelledby="panel-title">
         <div class="panel-content">
-            <button class="close-btn" onclick="closePanel()">×</button>
+            <button class="close-btn" onclick="closePanel()" aria-label="Close details panel">×</button>
             
             <div class="panel-header">
                 <span id="panel-type" class="panel-badge">PROJECT</span>
@@ -244,7 +247,7 @@
             </div>
 
             <div class="panel-footer">
-                <a id="panel-link" href="#" target="_blank" class="action-btn">
+                <a id="panel-link" href="#" target="_blank" rel="noopener noreferrer" class="action-btn">
                     Open Source <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
