@@ -4,7 +4,7 @@
  */
 
 import { loadMind } from './renderer.js';
-import { closePanel } from './ui.js';
+import { closeAllDialogs } from './ui.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Jalankan Penarikan Data JSON
@@ -78,19 +78,13 @@ window.addEventListener('click', (e) => {
     const panel = e.target.closest('.panel-content');
 
     if (!insideWindow && !menuBtn && !node && !core && !panel) {
-        document.querySelectorAll('.virtual-window').forEach(w => {
-            w.classList.remove('active');
-        });
-        closePanel();
+        closeAllDialogs();
     }
 });
 
 // Tutup Panel dengan Keyboard (ESC)
 window.addEventListener('keydown', (e) => {
     if (e.key === "Escape") {
-        document.querySelectorAll('.virtual-window').forEach(w => {
-            w.classList.remove('active');
-        });
-        closePanel();
+        closeAllDialogs();
     }
 });
