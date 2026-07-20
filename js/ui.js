@@ -6,6 +6,23 @@
 import { filterMind, currentActiveCategory, renderArchiveTable } from './renderer.js';
 import { initScrollAnimations } from './observer.js';
 
+// Menyimpan elemen yang terakhir difokus sebelum sebuah dialog dibuka,
+// agar fokus keyboard bisa dikembalikan ke sana saat dialog ditutup.
+let lastFocusedElement = null;
+
+function focusDialog(dialogEl) {
+    lastFocusedElement = document.activeElement;
+    const focusTarget = dialogEl.querySelector('.win-close, .close-btn, button, [href], input, textarea');
+    if (focusTarget) focusTarget.focus();
+}
+
+function restoreFocus() {
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+    }
+    lastFocusedElement = null;
+}
+
 export function openWindow(id) {
     const targetWin = document.getElementById(`window-${id}`);
     if (!targetWin) return;
@@ -19,16 +36,20 @@ export function openWindow(id) {
 
     if (!isAlreadyActive) {
         targetWin.classList.add('active');
+        focusDialog(targetWin);
         // Saat jendela dibuka, jalankan observer animasi di dalamnya
         setTimeout(() => {
             initScrollAnimations();
         }, 150);
+    } else {
+        restoreFocus();
     }
 }
 
 export function closeWindow(id) {
     const w = document.getElementById(`window-${id}`);
     if (w) w.classList.remove('active');
+    restoreFocus();
 }
 
 export function openArchiveWindow() {
@@ -36,20 +57,21 @@ export function openArchiveWindow() {
     if (win) {
         win.classList.add('active');
         switchArchiveTab('project');
+        focusDialog(win);
     }
 }
 
 export function closeArchive() {
     const win = document.getElementById('archive-window');
     if (win) win.classList.remove('active');
+    restoreFocus();
 }
 
 export function switchArchiveTab(type) {
     document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(type)) {
-            btn.classList.add('active');
-        }
+        const isMatch = btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(type);
+        btn.classList.toggle('active', isMatch);
+        btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
     });
     renderArchiveTable(type);
 }
@@ -96,11 +118,20 @@ export function showDetail(node) {
     }
     
     panel.classList.add('active');
+    focusDialog(panel);
 }
 
 export function closePanel() {
     const p = document.getElementById('data-panel');
     if (p) p.classList.remove('active');
+    restoreFocus();
+}
+
+export function closeAllDialogs() {
+    document.querySelectorAll('.virtual-window').forEach(w => {
+        w.classList.remove('active');
+    });
+    closePanel();
 }
 
 export function triggerSystemRefresh(element) {
