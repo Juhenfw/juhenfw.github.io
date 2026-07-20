@@ -254,7 +254,7 @@ body {
 .filter-btn {
     background: transparent;
     border: none;
-    color: #64748B;
+    color: #94A3B8;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
@@ -332,8 +332,27 @@ body {
     text-shadow: 0 0 10px rgba(0, 255, 204, 0.5); /* Efek pendar/glowing */
 }
 
+/* --- Tombol close di window-header (archive/profile/contact) ---
+   Sebelumnya elemen ini tidak punya style sama sekali sehingga tampil
+   sebagai tombol default browser (kotak abu-abu) di tengah tema gelap. */
+.win-close {
+    background: none;
+    border: none;
+    color: #94A3B8;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.win-close:hover {
+    color: var(--color-accent);
+    transform: scale(1.1);
+}
+
 .panel-badge { background: rgba(255, 255, 255, 0.08); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: bold; color: var(--color-research); text-transform: uppercase; }
-.panel-year { font-family: 'JetBrains Mono', monospace; color: #475569; margin-left: 10px; }
+.panel-year { font-family: 'JetBrains Mono', monospace; color: #94A3B8; margin-left: 10px; }
 #panel-title { font-size: 2rem; margin: 20px 0; line-height: 1.2; background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 #panel-desc { font-size: 1rem; color: #94A3B8; line-height: 1.6; margin-bottom: 30px; }
 .action-btn { display: inline-block; padding: 12px 25px; background: #F1F5F9; color: #080B10; text-decoration: none; font-weight: bold; border-radius: 30px; transition: all 0.3s; }
@@ -473,7 +492,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
 }
 /* Stats Styles */
-.holo-title { font-size: 0.8rem; color: #475569; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 5px; margin-bottom: 15px; letter-spacing: 1px; }
+.holo-title { font-size: 0.8rem; color: #94A3B8; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 5px; margin-bottom: 15px; letter-spacing: 1px; }
 .skill-item { margin-bottom: 12px; } .skill-item span { font-size: 0.85rem; display: block; margin-bottom: 5px; }
 .progress-bar { height: 6px; background: #1E293B; border-radius: 3px; overflow: hidden; }
 .progress-bar .fill { height: 100%; background: var(--color-accent); box-shadow: 0 0 10px var(--color-accent); }
@@ -481,7 +500,7 @@ body {
 .tl-item { margin-bottom: 20px; position: relative; }
 .tl-item::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; }
 .tl-date { font-size: 0.75rem; color: var(--color-accent); font-family: 'JetBrains Mono', monospace; }
-.tl-item h4 { margin: 5px 0; font-size: 1rem; } .tl-item p { margin: 0; font-size: 0.85rem; color: #64748B; }
+.tl-item h4 { margin: 5px 0; font-size: 1rem; } .tl-item p { margin: 0; font-size: 0.85rem; color: #94A3B8; }
 /* Contact Styles */
 .contact-layout { 
     display: grid; 
