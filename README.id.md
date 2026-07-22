@@ -16,11 +16,12 @@ Website portofolio interaktif bertema **Sci-Fi / Cyberpunk** yang mensimulasikan
 
 ## ✨ Fitur Utama
 
-* **Jaringan Saraf Interaktif:** Background partikel dinamis menggunakan **P5.js** yang merespons gerakan mouse.
+* **Jaringan Saraf Interaktif:** Background partikel dinamis menggunakan **Vanilla Canvas API** (tanpa library eksternal) yang merespons gerakan mouse dan membuat efek sinaps seperti laser. Animasi otomatis berhenti saat tab tidak aktif untuk hemat baterai.
 * **Dashboard Satu Halaman:** Antarmuka dashboard imersif tanpa scroll (di desktop) yang terasa seperti aplikasi native atau terminal.
 * **Manajemen Data Terpusat:** Seluruh konten (Profil, Pengalaman, Skill) diatur hanya melalui satu file JSON (`mind.json`).
 * **UI Glassmorphism:** Desain modern dengan efek kaca buram (blur), batas neon yang menyala, dan tipografi futuristik.
 * **Sistem Blog Adaptif:** Sistem blog terpisah yang responsif penuh dengan mode baca yang optimal, tipografi cair (fluid), dan blok kode gaya terminal.
+* **Aksesibilitas (WCAG AA):** Navigasi keyboard penuh, ARIA roles pada semua dialog dan tab, label screen reader pada ikon dan input form, serta manajemen fokus saat modal dibuka/ditutup.
 * **Optimasi Seluler:** Tata letak secara otomatis beradaptasi menjadi tampilan kartu yang dapat digulir (scrollable) pada perangkat seluler untuk kemudahan penggunaan.
 
 ---
@@ -32,7 +33,7 @@ Dibangun dengan **Teknologi Web Murni (Vanilla)** untuk performa maksimal, tanpa
 * **HTML5:** Struktur Semantik.
 * **CSS3:** Flexbox, Grid, Variabel CSS, Animasi, Media Queries.
 * **JavaScript (ES6+):** Manipulasi DOM, Parsing JSON, Logika Sistem.
-* **P5.js:** Library Creative Coding untuk sistem partikel background.
+* **Vanilla Canvas API:** Sistem partikel background kustom tanpa library eksternal — menggantikan dependensi P5.js sebelumnya (~800KB lebih ringan), dengan dukungan `prefers-reduced-motion`.
 * **Font Awesome:** Ikon Vektor.
 * **Google Fonts:** 'Space Grotesk' & 'JetBrains Mono'.
 
@@ -47,20 +48,25 @@ juhenfw.github.io/
 │
 ├── index.html          # Dashboard Utama (Inti Sistem)
 ├── style.css           # Gaya & Variabel Global (Tema Cyberpunk)
+├── robots.txt          # Instruksi untuk web crawler
+├── sitemap.xml         # Indeks URL untuk mesin pencari
 │
-├── assets/             # Aset Gambar (Profil, Logo, Screenshot)
+├── assets/             # Aset Gambar (Profil, Logo, Dokumen)
 │
 ├── data/
 │   └── mind.json       # 🧠 OTAK/BRAIN (Edit semua teks konten di sini)
 │
-├── js/
-│   ├── brain.js        # Logika Sistem (Parsing JSON, Event Listeners)
-│   └── sketch.js       # Visual Inti (Sistem Partikel P5.js)
+├── js/                 # Sistem Modul ES6
+│   ├── main.js         # Entry point & bootstrapper
+│   ├── ui.js           # Kontrol window/panel/tab & manajemen fokus
+│   ├── renderer.js     # Generator template HTML untuk node & tabel arsip
+│   ├── observer.js     # Intersection Observer untuk animasi scroll
+│   └── sketch.js       # Background partikel Vanilla Canvas
 │
 └── blog/               # Sistem Blog Terpisah
-    ├── template.html   # Template Master untuk membuat artikel baru
-    ├── blog-style.css  # CSS Khusus untuk mode baca
-    └── article-01.html # Contoh file artikel
+    ├── template-blog.html  # Template master untuk membuat artikel baru
+    ├── blog-style.css      # CSS khusus untuk mode baca
+    └── article-01.html     # Contoh file artikel
 ```
 
 ---
@@ -123,7 +129,7 @@ Buka file **`data/mind.json`**. Ini adalah satu-satunya sumber data. Anda tidak 
 
 ### Langkah 3: Menulis Artikel Blog Baru
 1.  Masuk ke folder `blog/`.
-2.  Duplikat file `template.html`.
+2.  Duplikat file `template-blog.html`.
 3.  Ubah namanya (misal: `proyek-baru-saya.html`).
 4.  Edit konten HTML-nya. Template sudah mendukung:
     * `<pre><code>` untuk blok kode gaya terminal.
@@ -139,9 +145,11 @@ Anda dapat dengan mudah mengubah tema warna dengan mengedit variabel `:root` di 
 
 ```css
 :root {
-    --primary-color: #00ffc8;    /* Warna Utama Neon Cyan */
-    --secondary-color: #aa00ff;  /* Warna Aksen Neon Ungu */
-    --bg-color: #05080c;         /* Background Gelap Pekat */
+    --color-accent: #00ffc8;      /* Warna Utama Neon Cyan */
+    --color-research: #00d2ff;    /* Node riset */
+    --color-project: #ffd200;     /* Node project */
+    --color-blog: #d500f9;        /* Node blog */
+    --bg-color: #080B10;          /* Background Gelap Pekat */
 }
 ```
 

@@ -16,9 +16,10 @@ A **Sci-Fi / Cyberpunk** themed interactive portfolio website that simulates a "
 
 ## ✨ Key Features
 
-* **Interactive Neural Network:** Dynamic, magnetic particle background using **P5.js** that responds to mouse movement and creates laser-like synapses.
+* **Interactive Neural Network:** Dynamic, magnetic particle background using **Vanilla Canvas API** that responds to mouse movement and creates laser-like synapses — no external library needed.
 * **Modular Architecture:** Refactored into pure **ES6 Modules** for clean separation of concerns (UI, Rendering, State Management).
-* **High-Performance Rendering:** Implements the **Intersection Observer API** for scroll-triggered animations, ensuring zero lag and maximum battery efficiency.
+* **High-Performance Rendering:** Implements the **Intersection Observer API** for scroll-triggered animations, ensuring zero lag and maximum battery efficiency. Animation automatically pauses when the tab is inactive.
+* **Accessibility (WCAG AA):** Full keyboard navigation, ARIA roles on all dialogs and tabs, screen-reader labels on icons and form inputs, and focus management on modal open/close.
 * **Single-Page Dashboard:** Immersive dashboard interface (desktop) that feels like a native app or terminal.
 * **Centralized Data Management:** All content (Profile, Experience, Skills) is managed via a single JSON file (`mind.json`).
 * **Glassmorphism UI:** Modern design with blur effects, neon glowing borders, and futuristic typography.
@@ -33,7 +34,7 @@ Built with pure **Vanilla Web Technologies** for maximum performance, proving th
 * **HTML5:** Semantic Structure & Open Graph SEO.
 * **CSS3:** Flexbox, Grid, CSS Variables, Native Crosshair Cursor, Keyframe Animations.
 * **JavaScript (ES6+):** ES6 Modules (`import/export`), Intersection Observer API, Fetch API for JSON.
-* **P5.js:** WebGL Creative Coding Library for the particle mesh background.
+* **Vanilla Canvas API:** Custom WebGL-free particle mesh background — replaces the previous P5.js dependency (~800KB saved), with `prefers-reduced-motion` support and tab-visibility pause.
 * **Font Awesome:** Vector Icons.
 * **Google Fonts:** 'Space Grotesk' & 'JetBrains Mono'.
 
@@ -48,6 +49,8 @@ juhenfw.github.io/
 │
 ├── index.html          # Main Dashboard & Meta Tags
 ├── style.css           # Global Styles & Variables (Cyberpunk Theme)
+├── robots.txt          # Crawler instructions
+├── sitemap.xml         # URL index for search engines
 │
 ├── assets/             # Image Assets (Profile, Logo, Documents)
 │
@@ -55,16 +58,16 @@ juhenfw.github.io/
 │   └── mind.json       # 🧠 THE BRAIN (Single source of truth for content)
 │
 ├── js/                 # ES6 Module System
-│   ├── main.js         # Entry point & Initializer
-│   ├── ui.js           # DOM Manipulation & Event Listeners
-│   ├── renderer.js     # HTML Template Generators for Nodes
-│   ├── observer.js     # Intersection Observer logic for scroll animations
-│   └── sketch.js       # Visual Core (P5.js Magnetic Particle System)
+│   ├── main.js         # Entry point & bootstrapper
+│   ├── ui.js           # Window/panel/tab control & focus management
+│   ├── renderer.js     # HTML template generators for nodes & archive table
+│   ├── observer.js     # Intersection Observer for scroll animations
+│   └── sketch.js       # Vanilla Canvas particle background
 │
 └── blog/               # Separate Blog System
-    ├── template.html   # Master Template for creating new articles
-    ├── blog-style.css  # Specialized CSS for reading mode
-    └── article-01.html # Example article file
+    ├── template-blog.html  # Master template for new articles
+    ├── blog-style.css      # Specialized CSS for reading mode
+    └── article-01.html     # Example article
 ```
 
 ---
@@ -140,9 +143,11 @@ You can easily change the color theme by editing `:root` variables in `style.css
 
 ```css
 :root {
-    --primary-color: #00ffc8;    /* Main Neon Cyan */
-    --secondary-color: #aa00ff;  /* Accent Neon Purple */
-    --bg-color: #05080c;         /* Deep Dark Background */
+    --color-accent: #00ffc8;      /* Main Neon Cyan */
+    --color-research: #00d2ff;    /* Research nodes */
+    --color-project: #ffd200;     /* Project nodes */
+    --color-blog: #d500f9;        /* Blog nodes */
+    --bg-color: #080B10;          /* Deep Dark Background */
 }
 ```
 
