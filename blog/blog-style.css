@@ -15,11 +15,6 @@ body {
     scrollbar-color: #00ffc8 #111;
 }
 
-/* Sembunyikan elemen dashboard */
-#ui-layer, .node, #filter-dock, #boot-screen {
-    display: none !important;
-}
-
 /* 2. CONTAINER UTAMA (ADAPTIVE WIDTH) */
 .blog-container {
     /* Lebar dinamis: Maksimal 800px, tapi di HP mengisi 90% layar */
@@ -179,16 +174,6 @@ body {
 }
 
 /* 6. FOOTER */
-.article-footer {
-    margin-top: 80px;
-    padding-top: 30px;
-    border-top: 1px dashed #333;
-    text-align: center;
-    color: #666;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-}
-
 /* =========================================
    MEDIA QUERY KHUSUS MOBILE (< 600px)
    ========================================= */
